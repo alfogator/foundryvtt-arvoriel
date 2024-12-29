@@ -67,6 +67,8 @@ Clocks are now here!
 - Polish (Język Polski)
 - German (Deutsch)
 - French (Français)
+- Portuguese (Português)
+- Italian (Italiano)
 
 ## Troubleshooting
 - If you can't find the drag-n-dropped item, refer to "All Items" tab on each sheet.
