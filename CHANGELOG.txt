@@ -1,3 +1,10 @@
+v.5.3.2
+- Add all rolls type upon attribute click (#23 @nic-ttrpg)
+- Fix "Acquire Assets roll is programmed incorrectly" (#21)
+- Fix NPC Sheets adding whitespace characters to multiple fields (#20)
+- Allow Faction Type to be editable from sheet (#22)
+- Enable dice roller to be accessed from the client (#24)
+
 v.5.3.1
 - Fixed Simple Roller bug when character had no crew
 - Localization Update (#16 @Azaun)

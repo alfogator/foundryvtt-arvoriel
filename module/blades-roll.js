@@ -342,7 +342,7 @@ export async function simpleRollPopup() {
             </span>
           </div>
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
-            <label><input type="radio" id="acqurieAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
+            <label><input type="radio" id="acquireAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
             <span style="width:200px">
               <label>${game.i18n.localize('BITD.CrewTier')}:</label>
               <select style="width:100px;float:right" id="tier" name="tier">
@@ -364,8 +364,8 @@ export async function simpleRollPopup() {
         label: `Roll`,
         callback: async (html) => {
           let diceQty = Number(html.find('[name="qty"]')[0].value);
-          let stress = html.find('[name="stress"]')[0].value;
-          let tier = html.find('[name="tier"]')[0].value;
+          let stress = Number(html.find('[name="stress"]')[0].value);
+          let tier = Number(html.find('[name="tier"]')[0].value);
           let note = html.find('[name="note"]')[0].value;
 
           let input = html.find("input");
@@ -381,7 +381,8 @@ export async function simpleRollPopup() {
                 case 'indulgeVice':
                   await bladesRoll(diceQty,"BITD.Vice","","",note,stress);
                   break;
-                case 'acqurieAsset':
+                case 'acquireAsset':
+				  diceQty = diceQty + tier; console.log(diceQty);
                   await bladesRoll(diceQty,"BITD.AcquireAsset","","",note,"",tier);
                   break;
 
