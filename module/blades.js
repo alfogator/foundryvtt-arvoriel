@@ -29,7 +29,8 @@ Hooks.once("init", async function() {
   console.log(`Initializing Blades In the Dark System`);
 
   game.blades = {
-    dice: bladesRoll
+    dice: bladesRoll,
+	roller: simpleRollPopup
   };
   game.system.bladesClocks = {
     sizes: [ 4, 6, 8, 10, 12 ]
