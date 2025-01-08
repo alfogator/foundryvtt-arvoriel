@@ -40,17 +40,26 @@ export class BladesActorSheet extends BladesSheet {
     if (loadout < 0) {
       loadout = 0;
     }
-    if (loadout > 10) {
-      loadout = 10;
+    if (loadout > 11) {
+      loadout = 11;
     }
 
     sheetData.system.loadout = loadout;
 
     // Encumbrance Levels
-    let load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
-			"BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
-    let mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
-			"BITD.Heavy","BITD.Encumbered","BITD.OverMax"];
+	let load_level;
+	let mule_level;
+	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
+		load_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous","BITD.Conspicuous","BITD.Encumbered",
+				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+		mule_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous",
+				"BITD.Conspicuous","BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
+	} else {
+		load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
+				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+		mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
+				"BITD.Heavy","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+	}
     let mule_present=0;
 
 
@@ -69,7 +78,11 @@ export class BladesActorSheet extends BladesSheet {
       sheetData.system.load_level=load_level[loadout];
     }
 
-    sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
+		sheetData.system.load_levels = {"BITD.Discreet":"BITD.Discreet", "BITD.Conspicuous":"BITD.Conspicuous"};
+	} else {
+		sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+	}
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 

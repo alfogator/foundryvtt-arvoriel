@@ -198,6 +198,10 @@
   "BITD.RollFailurePositionDesperate": "It's the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity for action</strong>.",
   "BITD.RollResistance": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Suffer <strong>{stress} stress</strong>.",
   "BITD.RollResistanceCritical": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Clear <strong>1 stress</strong>.",
+  "BITD.RollPeril": "Peril",
+  "BITD.RollThreatSuccess": "You avoid the threat.",
+  "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+  "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
 
   "BITD.PositionControlled": "Controlled",
   "BITD.PositionRisky": "Risky",
@@ -240,6 +244,8 @@
 
   "BITD.Encumbered": "encumbered",
   "BITD.OverMax": "over max",
+  "BITD.Discreet": "Discreet",
+  "BITD.Conspicuous": "Conspicuous",
 
   "BITD.Drain": "Drain",
   "BITD.Wear": "Wear",
@@ -277,6 +283,8 @@
   "BITD.Prison": "Prison",
 
   "BITD.ActionRoll": "Action",
+  "BITD.ThreatRoll": "Threat",
+  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Indulge Vice",
   "BITD.GatherInformation": "Gather Information",
   "BITD.Fortune": "Fortune",
@@ -284,6 +292,7 @@
   "BITD.AcquireAsset": "Acquire Asset",
   "BITD.AcquireAssetExtra": "To raise the result beyond critical, you may spend <strong>2 coin</strong> per +1 Tier bonus.",
   "BITD.CrewTier": "Crew Tier",
+  "BITD.ExtraThreats": "Extra Threats",
 
   "BITD.RollVice": "You indulge your vice.<br/>Clear <strong>{clear_stress} stress</strong>.",
   "BITD.RollViceFailure": "You <strong>overindulge</strong>. Clear <strong>{clear_stress} stress</strong> and choose <strong>one</strong> of the following consequences:",
@@ -317,6 +326,7 @@
   "BITD.Associated": "Associated",
   "BITD.DisabledByAE": "Minimum Value set by an Active Effect",
   "BITD.NoMastery": "This Scoundrel lacks Mastery",
+  "BITD.UnusedDice": "Unused Dice",
   
   "BITD.Colors": {
     "Black": "Black",
@@ -326,5 +336,24 @@
     "Red": "Red",
     "White": "White",
     "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    }
   }
 }

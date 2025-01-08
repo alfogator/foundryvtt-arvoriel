@@ -225,7 +225,7 @@
   text-align: right;
 }
 .blades-in-the-dark .loadout select option {
-  color: white;
+  color: black;
 }
 .blades-in-the-dark .loadout select:hover {
   color: red;

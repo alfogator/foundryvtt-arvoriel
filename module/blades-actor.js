@@ -95,6 +95,9 @@ export class BladesActor extends Actor {
       content += `
         <fieldset class="form-group" style="display:block;justify-content:space-between;">
           <legend>Roll Types</legend>
+		  `;
+		if (game.settings.get('blades-in-the-dark', 'ActionRoll')) {
+		  content += `
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
             <label style="width: 100px; display: inline-block;"><input type="radio" id="actionRoll" name="rollSelection" checked=true> ${game.i18n.localize("BITD.ActionRoll")}</label>
             <span style="width:150px">
@@ -114,6 +117,29 @@ export class BladesActor extends Actor {
               </select>
             </span>
           </div>
+		  `;
+		}
+		if (game.settings.get('blades-in-the-dark', 'ThreatRoll')) {
+		   content += `
+		    <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
+            <label style="width: 100px; display: inline-block;"><input type="radio" id="threatRoll" name="rollSelection" checked=true> ${game.i18n.localize("BITD.ThreatRoll")}</label>
+            <span style="width:150px">
+              <label>${game.i18n.localize('BITD.Position')}:</label>
+              <select id="pos2" name="pos2">
+                <option value="risky" selected>${game.i18n.localize('BITD.PositionRisky')}</option>
+                <option value="desperate">${game.i18n.localize('BITD.PositionDesperate')}</option>
+              </select>
+            </span>
+            <span style="width:150px">
+              <label>${game.i18n.localize('BITD.ExtraThreats')}:</label>
+              <select id="extraThreats" name="extraThreats">
+                ${Array(6).fill().map((item, i) => `<option value="${i}">${i}</option>`).join('')}
+              </select>
+            </span>
+          </div>
+		  `;
+		}
+		  content += `
           <div class="radio-group" >
             <label>
               <input type="radio" id="fortune" name="rollSelection"> ${game.i18n.localize("BITD.Fortune")}
@@ -139,7 +165,7 @@ export class BladesActor extends Actor {
             </span>
           </div>
           <div class="radio-group" style="display:flex;flex-direction:row;justify-content:space-between;">
-            <label><input type="radio" id="acqurieAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
+            <label><input type="radio" id="acquireAsset" name="rollSelection"> ${game.i18n.localize("BITD.AcquireAsset")}</label>
             <span style="width:200px">
               <label>${game.i18n.localize('BITD.CrewTier')}:</label>
               <select id="tier" name="tier">
@@ -153,6 +179,7 @@ export class BladesActor extends Actor {
       } else {
         content += `
             <input  id="pos" name="pos" type="hidden" value="">
+			<input  id="pos2" name="pos2" type="hidden" value="">
             <input id="fx" name="fx" type="hidden" value="">`;
     }
     content += `
@@ -160,9 +187,8 @@ export class BladesActor extends Actor {
           <label>${game.i18n.localize('BITD.Notes')}:</label>
           <input id="note" name="note" type="text" value="">
         </div><br/>
-        </form>
+       </form>
       `;
-
     new Dialog({
       title: `${game.i18n.localize('BITD.Roll')} ${game.i18n.localize(attribute_label)}`,
       content: content,
@@ -171,7 +197,9 @@ export class BladesActor extends Actor {
           icon: "<i class='fas fa-check'></i>",
           label: game.i18n.localize('BITD.Roll'),
           callback: async (html) => {
-            let modifier = parseInt(html.find('[name="mod"]')[0].value);
+            let position = html.find('[name="pos"]')[0].value;
+			let position2 = html.find('[name="pos2"]')[0].value;
+			let modifier = parseInt(html.find('[name="mod"]')[0].value);
             let note = html.find('[name="note"]')[0].value;
             let action_dice_amount = this.getRollData().dice_amount[attribute_name] + modifier;
             let vice_dice_amount = this.getRollData().dice_amount['BITD.Vice'] + modifier;
@@ -182,9 +210,12 @@ export class BladesActor extends Actor {
                 if (input[i].checked) {
                   switch (input[i].id) {
                     case 'actionRoll':
-                      let position = html.find('[name="pos"]')[0].value;
                       let effect = html.find('[name="fx"]')[0].value;
                       await this.rollAttribute(attribute_name, modifier, position, effect, note);
+                      break;
+					case 'threatRoll':
+                      let extraThreats = Number(html.find('[name="extraThreats"]')[0].value);
+					  await bladesRoll(action_dice_amount, attribute_name, position2, 'BITD.ThreatRoll', note, extraThreats);
                       break;
                     case 'fortune':
                       await bladesRoll(action_dice_amount,"BITD.Fortune","","",note,"");
@@ -199,7 +230,7 @@ export class BladesActor extends Actor {
                       let engagement_dice_amount = Number(html.find('[name="qty"]')[0].value);
                       await bladesRoll(engagement_dice_amount,"BITD.Engagement","","",note,"");
                       break;
-                    case 'acqurieAsset':
+                    case 'acquireAsset':
                       let tier = html.find('[name="tier"]')[0].value;
                       let asset_dice_amount = parseInt(tier) + modifier;
                       await bladesRoll(asset_dice_amount,"BITD.AcquireAsset","","",note,"",tier);
@@ -242,6 +273,7 @@ export class BladesActor extends Actor {
 
     await bladesRoll(dice_amount, attribute_name, position, effect, note, this.system.stress.value);
   }
+
 
   /* -------------------------------------------- */
 
