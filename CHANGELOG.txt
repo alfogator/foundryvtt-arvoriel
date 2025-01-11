@@ -1,3 +1,6 @@
+v.5.4.0
+- Added Threat Rolls, alternate Load Levels, and Experience clocks in support of Deep Cuts supplements (#19)
+
 v.5.3.2
 - Add all rolls type upon attribute click (#23 @nic-ttrpg)
 - Fix "Acquire Assets roll is programmed incorrectly" (#21)
@@ -33,7 +36,7 @@ v.5.1.2
 - Added Github Actions and updated the README
 
 v.5.1.1
-- Dice-So-Nice intregration fix #3 (@justinross)
+- Dice-So-Nice integration fix #3 (@justinross)
 
 v.5.1.0
 - Fixes for v12 Foundry #1 (@drewg13, @justinross)
@@ -41,7 +44,7 @@ v.5.1.0
 
 v.5.0.0
 - Added options for clock actors to go to 10 and 12 parts and have color. Edited the layout of the clock sheet html.
-- Added acquintances to character sheet and to crew sheet with the option to import the default acquaintances by playbook
+- Added acquaintances to character sheet and to crew sheet with the option to import the default acquaintances by playbook
 - Added Prison claims to the crew sheet
 - Added a spot to include crew Hunting Grounds on Crew Sheet
 - Added Active Effects to the crew sheet

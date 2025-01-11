@@ -131,7 +131,7 @@
 }
 .blades-in-the-dark section.experience {
   margin-bottom: 0px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .blades-in-the-dark .flex-horizontal {
   display: flex;

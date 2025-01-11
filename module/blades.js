@@ -331,6 +331,12 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('pc', function( string ) {
     return BladesHelpers.getProperCase( string );
   });
+  
+  // check for boolean game settings
+  Handlebars.registerHelper('getSetting', function( string ) {
+    if (game.settings.get('blades-in-the-dark', string)) {return true;}
+	else {return false;}
+  });
 });
 
 /**

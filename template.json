@@ -38,6 +38,12 @@
     "experience": [0],
     "experience_max": 8,
     "experience_clues": ["BITD.ClassExpClue3", "BITD.ClassExpClue2"],
+    "exp_clock": {
+      "value": 0,
+      "number": 0,
+      "size": 6,
+      "color": "black"
+	  },
     "coins": [0],
     "coins_stashed": [0],
     "special_abilities": [],
@@ -173,6 +179,12 @@
     "deity": "",
     "hold": ["strong"],
     "experience": [0],
+    "exp_clock": {
+      "value": 0,
+      "number": 0,
+      "size": 6,
+      "color": "black"
+	  },
     "hold_types": ["weak", "strong"],
     "coins": {
       "max": 4,

@@ -217,8 +217,46 @@ export class BladesActorSheet extends BladesSheet {
 	  let crewId = element.data("itemId");
 	  BladesHelpers.removeCrew(this.actor, crewId);
     });
-
 	
+		// Increment Exp Clock
+	html.find('.up-exp-clock').click(ev => {
+		let value = this.actor.system.exp_clock.value;
+		let number = this.actor.system.exp_clock.number;
+		value = value + 1;
+		if (value >= this.actor.system.exp_clock.size) {
+			value = 0;
+			number = number + 1;
+		}
+		this.actor.update({"system.exp_clock": {value : value, number : number}});
+	});
+	
+			// Decrement Exp Clock
+	html.find('.down-exp-clock').click(ev => {
+		let value = this.actor.system.exp_clock.value;
+		let number = this.actor.system.exp_clock.number;
+		value = value - 1;
+		if (value < 0) {
+			value = this.actor.system.exp_clock.size - 1;
+			number = number - 1;
+		}
+		this.actor.update({"system.exp_clock": {value : value, number : number}});
+	});
+	
+			// Add a whole Exp Clock
+	html.find('.add-exp-clock').click(ev => {
+		let number = this.actor.system.exp_clock.number;
+		number = number + 1;
+		this.actor.update({"system.exp_clock": {number : number}});
+	});
+	
+				// Remove a whole Exp Clock
+	html.find('.minus-exp-clock').click(ev => {
+		let number = this.actor.system.exp_clock.number;
+		if (number > 0) {number = number - 1;}
+		else {number = 0;}
+		this.actor.update({"system.exp_clock": {number : number}});
+	});
+
   }
 
 }

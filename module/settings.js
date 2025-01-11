@@ -47,4 +47,14 @@ export const registerSystemSettings = function() {
 	type: new foundry.data.fields.BooleanField(),
 	requiresReload: true
   });
+  
+    game.settings.register('blades-in-the-dark', 'ClockXP', {
+	name: game.i18n.localize('BITD.Settings.ClockXP.Name'),
+	hint: game.i18n.localize('BITD.Settings.ClockXP.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+  
 };
