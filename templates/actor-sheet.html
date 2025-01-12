@@ -128,9 +128,14 @@
 			<a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i class="fas fa-angles-up"></i></a>
 			<a class="minus-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}"><i class="fas fa-angles-down"></i></a>
 		</div>
-		{{#times_from 1 system.exp_clock.number}}
-			<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
-		{{/times_from}}
+			{{#if (lteq system.exp_clock.number 10)}}
+				{{#times_from 1 system.exp_clock.number}}
+					<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
+				{{/times_from}}
+			{{else}}
+				<img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45" width="45" style="border-style: none"/>
+				<p style="font-family: Kirsty, serif; font-size: 24px">x {{system.exp_clock.number}}</p>
+			{{/if}}
 	{{/if}}
 	{{/if}}
   </section>

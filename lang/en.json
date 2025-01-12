@@ -364,5 +364,15 @@
       "Name": "Experience Clocks",
       "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
     }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
   }
+
 }
