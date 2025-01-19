@@ -24,6 +24,14 @@
   <div class="die {{roll_status}}">{{localize "BITD.RollFailure"}}</div>
   <div class="description"><p>{{{localize "BITD.RollResistance" stress=3}}}</p></div>
   {{/if}}
+
+  <div class="description">
+	  {{#if (getSetting 'Edge')}}
+		{{#if edge}}
+			<p>{{{localize "BITD.GainEdge"}}}</p>
+		{{/if}}
+	  {{/if}}
+  </div>
   
   {{#if note}}
     <em>{{note}}</em>

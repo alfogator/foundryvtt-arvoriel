@@ -1,5 +1,5 @@
 v.5.4.0
-- Added Threat Rolls, alternate Load Levels, and Experience clocks in support of Deep Cuts supplements (#19)
+- Added Threat Rolls, alternate Load Levels, Experience Clocks, and Edge in support of Deep Cuts supplements (#19)
 - Deduplicated listeners and related function by moving them to blades-sheet.js
 - Opening a contact that is not imported to the world will now import the actor and connect the imported actor to the character sheet
 - Radio boxes now toggle when clicked and the zero buttons have been removed

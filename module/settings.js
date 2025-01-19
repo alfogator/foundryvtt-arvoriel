@@ -57,4 +57,13 @@ export const registerSystemSettings = function() {
 	requiresReload: true
   });
   
+    game.settings.register('blades-in-the-dark', 'Edge', {
+	name: game.i18n.localize('BITD.Settings.Edge.Name'),
+	hint: game.i18n.localize('BITD.Settings.Edge.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+
 };

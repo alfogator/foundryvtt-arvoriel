@@ -16,6 +16,14 @@
     <em>{{note}}</em>
   {{/if}}
 
+  <div class="description">
+	  {{#if (getSetting 'Edge')}}
+		{{#if edge}}
+			<p>{{{localize "BITD.GainEdge"}}}</p>
+		{{/if}}
+	  {{/if}}
+  </div>
+
   <ol class="dice-rolls">
     {{#each this.rolls}}
     {{#if this.result}}

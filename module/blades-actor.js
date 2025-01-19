@@ -406,4 +406,6 @@ export class BladesActor extends Actor {
 	}
 	return current_healing;
   }
+
+	
 }

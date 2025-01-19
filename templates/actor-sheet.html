@@ -107,6 +107,21 @@
       </div>
 
       {{> "systems/blades-in-the-dark/templates/parts/coins.html" actor=actor}}
+	  
+	  {{#if (getSetting 'Edge')}}
+	  <div class="attributes" style="padding: 10px">
+	  <div class="attributes-container">
+	    {{#multiboxes system.edge.value}}
+		<div class="attribute-skill-label"><b>{{localize "BITD.Edge"}}:</b></div>
+			<input type="radio" id="edge-{{_id}}-0" name="system.edge.value" value="0" checked="checked">
+			{{#times_from 1 system.edge.max}}
+				<input type="radio" id="edge-{{_id}}-{{this}}" name="system.edge.value" value="{{this}}">
+				<label class="radio-toggle" for="edge-{{_id}}-{{this}}"></label>
+			{{/times_from}}
+		{{/multiboxes}}
+		
+	  </div> </div>
+	  {{/if}}
     </div>
 
   </section>

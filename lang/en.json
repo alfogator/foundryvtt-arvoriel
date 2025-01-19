@@ -120,6 +120,7 @@
   "BITD.Coins": "Coins",
   "BITD.Stash": "Stash",
   "BITD.CrewReputation": "Crew Reputation",
+  "BITD.DeityDescription": "Deity Description",
   "BITD.CrewUpgrades": "Crew Upgrades",
   "BITD.Hold": "Hold",
   "BITD.Weak": "Weak",
@@ -298,6 +299,7 @@
   "BITD.AcquireAssetExtra": "To raise the result beyond critical, you may spend <strong>2 coin</strong> per +1 Tier bonus.",
   "BITD.CrewTier": "Crew Tier",
   "BITD.ExtraThreats": "Extra Threats",
+  "BITD.Threats": "Threats",
 
   "BITD.RollVice": "You indulge your vice.<br/>Clear <strong>{clear_stress} stress</strong>.",
   "BITD.RollViceFailure": "You <strong>overindulge</strong>. Clear <strong>{clear_stress} stress</strong> and choose <strong>one</strong> of the following consequences:",
@@ -332,6 +334,8 @@
   "BITD.DisabledByAE": "Minimum Value set by an Active Effect",
   "BITD.NoMastery": "This Scoundrel lacks Mastery",
   "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
   
   "BITD.Colors": {
     "Black": "Black",
@@ -363,6 +367,10 @@
     "ClockXP": {
       "Name": "Experience Clocks",
       "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
     }
   },
   "BITD.log": {

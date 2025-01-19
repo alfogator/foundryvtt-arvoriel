@@ -341,10 +341,25 @@ Hooks.once("ready", function() {
 
 // getSceneControlButtons
 Hooks.on("renderSceneControls", async (app, html) => {
-  let dice_roller = $('<li class="scene-control" data-tooltip="Dice Roll"><i class="fas fa-dice"></i></li>');
-  dice_roller.click( async function() {
-    await simpleRollPopup();
-  });
-  html.children().first().append( dice_roller );
+	
+	if (foundry.utils.isNewerVersion(game.version,13)) {
+		controls.DiceRoller = {
+			name: "DiceRoller",
+			title: "Dice Roller",
+			icon: "fas fa-dice",
+			onChange: (event, active) => {
+				console.log("Do something when the button is clicked!");
+				simpleRollPopup();
+			},
+			button: true
+		};		
+	} else {
+	  let dice_roller = $('<li class="scene-control" data-tooltip="Dice Roll"><i class="fas fa-dice"></i></li>');
+	  dice_roller.click( async function() {
+		await simpleRollPopup();
+	  });
+	  html.children().first().append( dice_roller );
+	}
 
 });
+
