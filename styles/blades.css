@@ -680,7 +680,7 @@
   width: 100px;
 }
 .blades-in-the-dark.crew.sheet .item-crew-rep {
-  height: 50px;
+  height: 35px;
   padding-top: 10px;
   justify-content: start;
 }
@@ -780,9 +780,9 @@
 .blades-in-the-dark.crew.sheet .crew-reputation input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
+/*.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
   background-image: url(assets/teeth/stresstooth-black.png);
-}
+} */
 .blades-in-the-dark.crew.sheet .turf-container {
   overflow-x: scroll;
   overflow-y: clip;

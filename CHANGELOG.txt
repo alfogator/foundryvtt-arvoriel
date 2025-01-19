@@ -4,6 +4,8 @@ v.5.4.0
 - Opening a contact that is not imported to the world will now import the actor and connect the imported actor to the character sheet
 - Radio boxes now toggle when clicked and the zero buttons have been removed
 - All multiboxes on scoundrel and crew sheets are dynamically generated and can be modified through active effects
+- Fix CSS styling so that Crew Reputation Bar was readable when the sheet was in Observer Mode (#28)
+- Added a place for the cult crew's deity description (#27)
 
 v.5.3.2
 - Add all rolls type upon attribute click (#23 @nic-ttrpg)

@@ -181,6 +181,11 @@
     "lair": "",
     "tier": "",
     "deity": "",
+    "rep2": {
+      "value": "",
+      "visible": false,
+      "label": "BITD.Description"
+    },
     "hold": ["strong"],
     "experience": [0],
     "exp_clock": {

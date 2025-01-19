@@ -7,9 +7,9 @@
     <div id="crew-{{_id}}-name-alias" class="crew-name-alias grow-two flex-column">
       <div id="crew-{{_id}}-name-box" class="crew-name">
         <label for="crew-{{_id}}-name"><b>{{localize "BITD.Name"}}</b></label>
-        <input type="text" id="crew-{{_id}}-name" name="name" value="{{name}}" placeholder="{{localize "BITD.CrewName"}}">
+        <input type="text" id="crew-{{_id}}-name" name="name" value="{{name}}" placeholder={{localize "BITD.CrewName"}}>
       </div>
-
+	 <div class="flex-vertical" style="justify-content: start">
       <div class="item-crew-rep flex-horizontal">
         <div class="item-class-label">
           <a class="item-add-popup" data-distinct="true" data-item-type="crew_reputation">{{localize "BITD.CrewReputation"}}:</a>
@@ -26,6 +26,18 @@
           </div>
         {{/if}}
         {{/each}}
+		</div>
+		{{#if system.rep2.visible}}
+		<div class="item-crew-rep flex-horizontal">
+		<div class="item-class-label">
+          {{localize system.rep2.label}}:
+        </div>
+      <div id="crew-{{_id}}-rep2-box" class="crew-name">
+        <input type="text" id="crew-{{_id}}-rep2-value" name="system.rep2.value" value="{{system.rep2.value}}">
+      </div> 
+		</div>
+		{{/if}}
+		</div>
       </div>
     </div>
 
