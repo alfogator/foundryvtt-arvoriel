@@ -9,20 +9,26 @@
 		<a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">{{localize attribute.label}}</a>
       </div>
       <div class="stripe-tooth-body">
+	      {{#if (getSetting 'ClockXP')}}
+		  {{else}}
         {{#multiboxes attribute.exp}}
 
-        <label
+        <!--
+		<label
                 for="{{../_id}}-{{attribute_name}}-exp-0"><i
                 class="fab fa-creative-commons-zero nullifier"></i></label>
+		-->
+		
         <input type="radio" id="{{../_id}}-{{attribute_name}}-exp-0"
                name="system.attributes.{{attribute_name}}.exp" value="0" checked="checked">
         {{#times_from 1 attribute.exp_max}}
           <input type="radio" id="{{../../_id}}-{{attribute_name}}-exp-{{this}}"
                  name="system.attributes.{{attribute_name}}.exp" value="{{this}}">
-          <label for="{{../../_id}}-{{attribute_name}}-exp-{{this}}"></label>
+          <label class="radio-toggle" for="{{../../_id}}-{{attribute_name}}-exp-{{this}}"></label>
         {{/times_from}}
         {{/multiboxes}}
       </div>
+	  {{/if}}
     </div>
 
     {{!-- Skills --}}
@@ -33,8 +39,10 @@
       <div class="attributes-container">
 
         {{#multiboxes skill.value}}
-
-        {{#times_from 0 skill.max}}
+		<input {{#if (lteq 0 (oneless skill.min))}}disabled {{/if}}
+			type="radio" id="attributes-{{../../../_id}}-{{skill_name}}-0" data-dtype="Number"
+            name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="0">
+        {{#times_from 1 skill.max}}
         <input {{#if (lteq this (oneless skill.min))}}disabled {{/if}}
 			type="radio" id="attributes-{{../../../_id}}-{{skill_name}}-{{this}}" data-dtype="Number"
             name="system.attributes.{{attribute_name}}.skills.{{skill_name}}.value" value="{{this}}">
@@ -43,7 +51,7 @@
 			{{/if}}
 			{{#if (lteq this (oneless skill.min))}}style="filter: unset; opacity: unset; cursor: unset;" 
 			{{/if}}
-		for="attributes-{{../../../_id}}-{{skill_name}}-{{this}}"></label>
+		class="radio-toggle" for="attributes-{{../../../_id}}-{{skill_name}}-{{this}}"></label>
         {{/times_from}}
 		
 		{{#if (eq skill.max 3)}}

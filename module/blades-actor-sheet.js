@@ -148,23 +148,12 @@ export class BladesActorSheet extends BladesSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Update Inventory Item
-    html.find('.item-body').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
+		// Remove Crew from character sheet
+    html.find('.crew-delete').click(ev => {
+	  const element = $(ev.currentTarget).parents(".item");
+	  let crewId = element.data("itemId");
+	  BladesHelpers.removeCrew(this.actor, crewId);
     });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
-    });
-
-    // manage active effects
-    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));
-
   }
 
 }

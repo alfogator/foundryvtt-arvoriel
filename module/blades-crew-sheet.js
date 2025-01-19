@@ -97,24 +97,6 @@ export class BladesCrewSheet extends BladesSheet {
     // Add Crew Type
     html.find(".crew-class").click(this._onItemAddClick.bind(this));
 
-
-    // Update Inventory Item
-    html.find('.item-sheet-open').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
-    });
-	
-    // manage active effects
-    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));
-
     // Add a new Cohort
     html.find('.add-item').click(ev => {
       BladesHelpers._addOwnedItem(ev, this.actor);

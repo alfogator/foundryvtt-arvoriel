@@ -77,7 +77,8 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 	
 	// sort the roll results and remap them to have a sorted rolls array
 	let s_rolls = [];
-	if (zeromode) {s_rolls = r_rolls;} else {s_rolls = rolls;}
+	if (zeromode) {s_rolls = r_rolls;} 
+		else {s_rolls = rolls.slice(0,rolls.length);}
     let sorted_rolls = s_rolls.map(i => i.result).sort();
 	for (let k =0; k < s_rolls.length; k++) {
 		s_rolls[k].result = sorted_rolls[k];

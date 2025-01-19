@@ -1,3 +1,6 @@
+import { BladesActiveEffect } from "./blades-active-effect.js";
+import { BladesHelpers } from "./blades-helpers.js";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -12,10 +15,25 @@ export class BladesSheet extends ActorSheet {
     super.activateListeners(html);
     html.find(".item-add-popup").click(this._onItemAddClick.bind(this));
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
-	html.find("input.radio-toggle, label.radio-toggle").click((e) => e.preventDefault());
-	html.find("input.radio-toggle, label.radio-toggle").mousedown((e) => {
-		this._onRadioToggle(e);
-    });
+	
+	//for compatibility with bitd-alternate-sheets v1.0.10
+	if (game.modules.get("bitd-alternate-sheets").active) {
+		html.find("input.radio-toggle, label.radio-toggle").click((e) => e.preventDefault());
+		html.find("input.radio-toggle, label.radio-toggle").mousedown((e) => {
+			this._onRadioToggle(e);
+		});
+		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
+			this._onRadioToggle(e);
+		});		
+	} else {
+		html.find("input.radio-toggle, label.radio-toggle").click((e) => {	
+			this._onRadioToggle(e);
+		});
+		html.find("input.radio-toggle, label.radio-toggle").contextmenu((e) => {	
+			this._onRadioToggle(e);
+		});		
+	}
+
 
     // Post item to chat
     html.find(".item-post").click((ev) => {
@@ -30,6 +48,24 @@ export class BladesSheet extends ActorSheet {
     }
 
     html.find(".roll-die-attribute").click(this._onRollAttributeDieClick.bind(this));
+	
+    // Update Inventory Item
+    html.find('.item-body').click(ev => {
+      const element = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(element.data("itemId"));
+      item.sheet.render(true);
+    });
+
+    // Delete Inventory Item
+    html.find('.item-delete').click( async ev => {
+      const element = $(ev.currentTarget).parents(".item");
+      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
+      element.slideUp(200, () => this.render(false));
+    });
+
+    // manage active effects
+    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));	
+	
 	
 		// acquaintance status toggle
     html.find('.standing-toggle').click(ev => {
@@ -57,7 +93,6 @@ export class BladesSheet extends ActorSheet {
 	
 	  // Open Acquaintance
     html.find('.open-friend').click(ev => {
-		//game.actors.importFromCompendium(game.packs.get("blades-in-the-dark.npc"),"Dv29btX5yhOkX8Pu")
       const element = $(ev.currentTarget).parents(".item");
 		//acqId is the UUID of the Acquaintance
 	  let acqId = element.data("itemId");
@@ -256,7 +291,8 @@ export class BladesSheet extends ActorSheet {
       let labelID = $(target).attr("for");
       target = $(`#${labelID}`).get(0);
     }
-    if (target.checked) {
+
+    if (target.checked || (event.type == "contextmenu")) {
       //find the next lowest-value input with the same name and click that one instead
       let name = target.name;
       let value = parseInt(target.value) - 1;

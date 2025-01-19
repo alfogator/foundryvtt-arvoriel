@@ -46,6 +46,10 @@
 	  },
     "coins": [0],
     "coins_stashed": [0],
+    "coins_max": {
+      "hand": 4,
+      "stash": 40
+    },
     "special_abilities": [],
     "loadout": 0,
     "load_level": "",
@@ -210,6 +214,13 @@
       "add_trauma": 0,
       "add_stress": 0,
       "mastery": false
+    },
+    "max": {
+      "heat": 9,
+      "tier": 4,
+      "wanted": 4,
+      "rep": 12,
+      "exp": 10
     }
   },
   "\uD83D\uDD5B clock": {
