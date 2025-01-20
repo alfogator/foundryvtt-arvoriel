@@ -40,17 +40,26 @@ export class BladesActorSheet extends BladesSheet {
     if (loadout < 0) {
       loadout = 0;
     }
-    if (loadout > 10) {
-      loadout = 10;
+    if (loadout > 11) {
+      loadout = 11;
     }
 
     sheetData.system.loadout = loadout;
 
     // Encumbrance Levels
-    let load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
-			"BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
-    let mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
-			"BITD.Heavy","BITD.Encumbered","BITD.OverMax"];
+	let load_level;
+	let mule_level;
+	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
+		load_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous","BITD.Conspicuous","BITD.Encumbered",
+				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+		mule_level=["BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Discreet","BITD.Conspicuous",
+				"BITD.Conspicuous","BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
+	} else {
+		load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
+				"BITD.Encumbered","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+		mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
+				"BITD.Heavy","BITD.Encumbered","BITD.OverMax","BITD.OverMax"];
+	}
     let mule_present=0;
 
 
@@ -69,7 +78,11 @@ export class BladesActorSheet extends BladesSheet {
       sheetData.system.load_level=load_level[loadout];
     }
 
-    sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+	if (game.settings.get('blades-in-the-dark', 'DeepCutLoad')) {
+		sheetData.system.load_levels = {"BITD.Discreet":"BITD.Discreet", "BITD.Conspicuous":"BITD.Conspicuous"};
+	} else {
+		sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+	}
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
 
@@ -135,77 +148,12 @@ export class BladesActorSheet extends BladesSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Update Inventory Item
-    html.find('.item-body').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
-    });
-
-    // manage active effects
-    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));
-
-	// acquaintance status toggle
-    html.find('.standing-toggle').click(ev => {
-      let acquaintances = this.actor.system.acquaintances;
-      let acqId = ev.target.closest('.acquaintance').dataset.acquaintance;
-      let clickedAcqIdx = acquaintances.findIndex(item => item.id == acqId);
-      let clickedAcq = acquaintances[clickedAcqIdx];
-      let oldStanding = clickedAcq.standing;
-      let newStanding;
-      switch(oldStanding){
-        case "friend":
-          newStanding = "rival";
-          break;
-        case "rival":
-          newStanding = "neutral";
-          break;
-        case "neutral":
-          newStanding = "friend";
-          break;
-      }
-      clickedAcq.standing = newStanding;
-      acquaintances.splice(clickedAcqIdx, 1, clickedAcq);
-      this.actor.update({system: {acquaintances : acquaintances}});
-    });
-
-	  // Open Acquaintance
-    html.find('.open-friend').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const actor = game.actors.get(element.data("itemId"));
-      actor?.sheet.render(true);
-    });
-
-	// Remove Acquaintance from character sheet
-    html.find('.acquaintance-delete').click(ev => {
-      //let acqId = ev.target.closest('.acquaintance').dataset.acquaintance; //used when <div class="acquaintance"
-	  const element = $(ev.currentTarget).parents(".item");
-	  let acqId = element.data("itemId");
-	  BladesHelpers.removeAcquaintance(this.actor, acqId);
-    });
-
-	  // Import Acquaintance by playbook
-    html.find('.import-contacts').click(ev => {
-	  const playbook = this.actor.items.filter(i=> i.type === "class")[0]?.name;
-	  BladesHelpers.import_pb_contacts(this.actor, playbook);
-
-    });
-	
 		// Remove Crew from character sheet
     html.find('.crew-delete').click(ev => {
 	  const element = $(ev.currentTarget).parents(".item");
 	  let crewId = element.data("itemId");
 	  BladesHelpers.removeCrew(this.actor, crewId);
     });
-
-	
   }
 
 }

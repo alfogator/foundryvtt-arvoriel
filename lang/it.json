@@ -119,6 +119,7 @@
   "BITD.Coins": "Monete",
   "BITD.Stash": "Scorta",
   "BITD.CrewReputation": "Reputazione",
+  "BITD.DeityDescription": "Deity Description",
   "BITD.CrewUpgrades": "Potenziamenti della banda",
   "BITD.Hold": "Dominio",
   "BITD.Weak": "Debole",
@@ -134,6 +135,11 @@
   "BITD.Notes": "Note",
   "BITD.AllItems": "Tutti gli oggetti",
   "BITD.CrewXP": "PE della banda",
+  "BITD.XP": "XP",
+  "BITD.AddXP": "Add XP",
+  "BITD.MinusXP": "Minus XP",
+  "BITD.AddXPClock": "Add XP Clock",
+  "BITD.MinusXPClock": "Minus XP Clock",
   "BITD.CrewExpClue1": "Alla fine della sessione, Per ogni innesco segna 1 PE se la condizione si è verificata una volta (2 PE se la condizione si è verificata più volte)",
   "BITD.SpecialAbilities": "Abilità speciali",
   "BITD.Claimed": "Reclamato",
@@ -197,6 +203,10 @@
   "BITD.RollFailurePositionDesperate":"È il risultato peggiore. Subisci un <strong>danno grave</strong>, una <strong>complicazione seria</strong>, <strong>perdi</strong> questa opportunità.",
   "BITD.RollResistance": "<strong>Riduci</strong> o <strong>eviti </strong>gli effetti di una conseguenza (il GM decide). <br>Subisci <strong>{stress} stress</strong>",
   "BITD.RollResistanceCritical": "<strong>Riduci</strong> o <strong>eviti </strong>gli effetti di una conseguenza (il GM decide). <br/>recupera <strong>1 stress</strong>.",
+  "BITD.RollPeril": "Peril",
+  "BITD.RollThreatSuccess": "You avoid the threat.",
+  "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+  "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
 
   "BITD.PositionControlled": "Controllata",
   "BITD.PositionRisky": "Rischiosa",
@@ -239,6 +249,8 @@
 
   "BITD.Encumbered": "Gravato",
   "BITD.OverMax": "Oltre il massimo",
+  "BITD.Discreet": "Discreet",
+  "BITD.Conspicuous": "Conspicuous",
 
   "BITD.Drain": "Sfinimento",
   "BITD.Wear": "Usura",
@@ -275,6 +287,9 @@
   "BITD.CargoTypes": "Tipologie di merci",
   "BITD.Prison": "Prigione",
 
+  "BITD.ActionRoll": "Action",
+  "BITD.ThreatRoll": "Threat",
+  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Indulgere al vizio",
   "BITD.GatherInformation": "Raccogliere informazioni",
   "BITD.Fortune": "Sorte",
@@ -282,6 +297,8 @@
   "BITD.AcquireAsset": "Acquisire una risorsa",
   "BITD.AcquireAssetExtra": "Puoi spendere Denaro per aumentare il risultato del tiro oltre al Successo Critico, al costo di 2 Denari per ogni ulteriore livello aggiunto al Rango",
   "BITD.CrewTier": "Rango della banda",
+  "BITD.ExtraThreats": "Extra Threats",
+  "BITD.Threats": "Threats",
 
   "BITD.RollVice": "Indulgi nel tuo vizio.<br/>rimuovi <strong>{clear_stress} stress</strong>.",
   "BITD.RollViceFailure": "Hai <strong>Ecceduto nel vizio</strong>. Rimuovi <strong>{clear_stress} stress</strong> E scegli <strong>una</strong> delle conseguenze elencate:",
@@ -314,6 +331,56 @@
   "BITD.Full": "Pieno",
   "BITD.Associated": "Associato",
   "BITD.DisabledByAE": "Valore Minimo impostato da un Effetto Attivo",
-  "BITD.NoMastery": "Questo Mascalzone non ha Maestria"
+  "BITD.NoMastery": "Questo Mascalzone non ha Maestria",
+  "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
+  
+  "BITD.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    },
+    "ClockXP": {
+      "Name": "Experience Clocks",
+      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+    }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
+  }
 
 }

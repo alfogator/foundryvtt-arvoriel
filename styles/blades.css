@@ -131,7 +131,7 @@
 }
 .blades-in-the-dark section.experience {
   margin-bottom: 0px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .blades-in-the-dark .flex-horizontal {
   display: flex;
@@ -225,7 +225,7 @@
   text-align: right;
 }
 .blades-in-the-dark .loadout select option {
-  color: white;
+  color: black;
 }
 .blades-in-the-dark .loadout select:hover {
   color: red;
@@ -680,7 +680,7 @@
   width: 100px;
 }
 .blades-in-the-dark.crew.sheet .item-crew-rep {
-  height: 50px;
+  height: 35px;
   padding-top: 10px;
   justify-content: start;
 }
@@ -780,9 +780,9 @@
 .blades-in-the-dark.crew.sheet .crew-reputation input:checked + label {
   background-image: url("assets/teeth/stresstooth-red.png");
 }
-.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
+/*.blades-in-the-dark.crew.sheet .crew-reputation input:disabled + label {
   background-image: url(assets/teeth/stresstooth-black.png);
-}
+} */
 .blades-in-the-dark.crew.sheet .turf-container {
   overflow-x: scroll;
   overflow-y: clip;
@@ -1464,7 +1464,7 @@
 .blades-in-the-dark.actor.pc * .teeth-experience label {
   height: 30px;
   width: 10px;
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/xptooth-red.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-right: 5px;
@@ -1494,7 +1494,7 @@
   background-image: url("assets/teeth/stresstooth-halfgrey.png");
 }
 .blades-in-the-dark.actor.pc * .teeth-experience input:checked + label {
-  background-image: url("assets/teeth/stresstooth-red.png");
+  background-image: url("assets/teeth/xptooth-red.png");
 }
 .blades-in-the-dark.actor.pc * .harm-armor {
   display: flex;
@@ -1564,6 +1564,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* Hide the browser's default checkbox */
 }
 .blades-in-the-dark.actor.pc * .attributes {
   display: flex;

@@ -120,6 +120,7 @@
   "BITD.Coins": "Münzen",
   "BITD.Stash": "Vermögen",
   "BITD.CrewReputation": "Ruf",
+  "BITD.DeityDescription": "Deity Description",
   "BITD.CrewUpgrades": "Gang-Verbesserungen",
   "BITD.Hold": "Griff",
   "BITD.Weak": "Schwach",
@@ -135,6 +136,11 @@
   "BITD.Notes": "Notizen",
   "BITD.AllItems": "Alle Gegenstände",
   "BITD.CrewXP": "Bande EP",
+  "BITD.XP": "XP",
+  "BITD.AddXP": "Add XP",
+  "BITD.MinusXP": "Minus XP",
+  "BITD.AddXPClock": "Add XP Clock",
+  "BITD.MinusXPClock": "Minus XP Clock",
   "BITD.CrewExpClue1": "Tragt am Ende der Sitzung für jeden Auslöser 1 EP ein. Tragt 2 EP ein, wenn er mehrfach vorgekommen ist.",
   "BITD.SpecialAbilities": "Spezialfähigkeiten",
   "BITD.Claimed": "Beansprucht",
@@ -198,6 +204,10 @@
   "BITD.RollFailurePositionDesperate": "Das Schlimmste geschieht. Du erleidest schweren Schaden, eine ernste Komplikation tritt auf, du verpasst diese Gelegenheit.",
   "BITD.RollResistance": "Du verringerst oder vermeidest die Wirkung der Konsequenz (SL entscheidet). Erleide 6 Stress minus dem höchsten Würfelergebnis.",
   "BITD.RollResistanceCritical": "Du verringerst oder vermeidest die Wirkung der Konsequenz (SL entscheidet). Entferne 1 Stress.",
+  "BITD.RollPeril": "Peril",
+  "BITD.RollThreatSuccess": "You avoid the threat.",
+  "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+  "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
 
   "BITD.PositionControlled": "Kontrolliert",
   "BITD.PositionRisky": "Riskant",
@@ -240,6 +250,8 @@
 
   "BITD.Encumbered": "Überladen",
   "BITD.OverMax": "über max",
+  "BITD.Discreet": "Discreet",
+  "BITD.Conspicuous": "Conspicuous",
 
   "BITD.Drain": "Verfall",
   "BITD.Wear": "Verschleiss",
@@ -274,6 +286,9 @@
   "BITD.CargoTypes": "Frachtarten",
   "BITD.Prison": "Gefängnis",
 
+  "BITD.ActionRoll": "Action",
+  "BITD.ThreatRoll": "Threat",
+  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Dem Laster Nachgeben",
   "BITD.GatherInformation": "Informationen Sammeln",
   "BITD.Fortune": "Vermögen",
@@ -313,6 +328,56 @@
   "BITD.Full": "Voll",
   "BITD.Associated": "Dazugehörig",
   "BITD.DisabledByAE": "Durch einen aktiven Effekt festgelegter Mindestwert",
-  "BITD.NoMastery": "Diesem Schurken mangelt es an Meisterschaft"
+  "BITD.NoMastery": "Diesem Schurken mangelt es an Meisterschaft",
+  "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
+  
+  "BITD.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    },
+    "ClockXP": {
+      "Name": "Experience Clocks",
+      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+    }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
+  }								   
 
 }

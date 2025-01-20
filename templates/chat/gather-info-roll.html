@@ -18,6 +18,14 @@
   <div class="description"><p>{{{localize "BITD.RollGatherInformationFailure"}}}</p></div>
   {{/if}}
 
+  <div class="description">
+	  {{#if (getSetting 'Edge')}}
+		{{#if edge}}
+			<p>{{{localize "BITD.GainEdge"}}}</p>
+		{{/if}}
+	  {{/if}}
+  </div>
+
   {{#if note}}
     <em>{{note}}</em>
   {{/if}}

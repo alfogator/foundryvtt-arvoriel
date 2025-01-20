@@ -118,7 +118,7 @@
   "BITD.Coin": "Dukat",
   "BITD.Coins": "Dukaty",
   "BITD.Stash": "Skrytka",
-  "BITD.CrewReputation": "Reputacja",
+   "BITD.DeityDescription": "Deity Description",
   "BITD.CrewUpgrades": "Ulepszenia Szajki",
   "BITD.Hold": "Kont.",
   "BITD.Weak": "Słaba",
@@ -134,6 +134,11 @@
   "BITD.Notes": "Notatki",
   "BITD.AllItems": "Wszystkie przedmioty",
   "BITD.CrewXP": "PD Szajki",
+  "BITD.XP": "XP",
+  "BITD.AddXP": "Add XP",
+  "BITD.MinusXP": "Minus XP",
+  "BITD.AddXPClock": "Add XP Clock",
+  "BITD.MinusXPClock": "Minus XP Clock",
   "BITD.CrewExpClue1": "Pod koniec każdej sesji zaznacz 1 pd (lub 2 pd, jeśli wystąpił wielokrotnie) za każdy poniższy wyzwalacz",
   "BITD.SpecialAbilities": "Zdolności Specjalne",
   "BITD.Claimed": "Claimed",
@@ -196,6 +201,10 @@
   "BITD.RollFailurePositionDesperate": "Najgorszy możliwy wynik. Doznajesz <strong>poważnej krzywdy/strong>, zachodzi <strong>poważna komplikacja</strong>, <strong>tracisz tę okazję do działania.</strong>",
   "BITD.RollResistance": "<strong>Zmniejszasz</strong> lub <strong>unikasz</strong> skutków konsekwencji (tak wybiera MG).<br/>Cierpisz na <strong>stres</strong>.",
   "BITD.RollResistanceCritical": "<strong>Zmniejszasz</strong> lub <strong>unikasz</strong> skutków konsekwencji (tak wybiera MG).<br/>Usuń <strong>1 stres</strong>.",
+  "BITD.RollPeril": "Peril",
+  "BITD.RollThreatSuccess": "You avoid the threat.",
+  "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+  "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
   "BITD.PositionControlled": "Kontrolowana",
   "BITD.PositionRisky": "Ryzykowna",
   "BITD.PositionDesperate": "Desperacka",
@@ -236,6 +245,9 @@
   
   "BITD.Encumbered": "encumbered",
   "BITD.OverMax": "over max",
+  "BITD.Discreet": "Discreet",
+  "BITD.Conspicuous": "Conspicuous",
+  
   "BITD.Drain": "Drenaż",
   "BITD.Wear": "Zużycie",
   "BITD.Gloom": "Smutek",
@@ -277,7 +289,9 @@
   "BITD.AcquireAsset": "Nabyć Aktywa",
   "BITD.AcquireAssetExtra": "Aby podnieść wynik ponad poziom krytyczny, możesz wydać <strong>2 monety</strong> na każdy bonus +1 poziomu.",
   "BITD.CrewTier": "Poziom Banda",
-
+  "BITD.ExtraThreats": "Extra Threats",
+  "BITD.Threats": "Threats",
+  
   "BITD.RollVice": "Rozkoszujesz się swoim głosem.<br/>Wyraźny <strong>{clear_stress} stres</strong>.",
   "BITD.RollViceFailure": "<strong>Przesadzasz</strong>. Wyeliminuj <strong>{clear_stress} stres</strong> i wybierz <strong>jedną</strong> z następujących konsekwencji:",
   "BITD.RollViceFailureAttactTrouble": "<strong>Przyciągnij kłopoty.</strong> Wybierz lub wylosuj dodatkowe <strong>splątanie.</strong>",
@@ -309,6 +323,56 @@
   "BITD.Full": "Pełny",
   "BITD.Associated": "Powiązany",
   "BITD.DisabledByAE": "Minimalna wartość ustawiona przez Aktywny Efekt",
-  "BITD.NoMastery": "Ten łobuz nie ma mistrzostwa"
+  "BITD.NoMastery": "Ten łobuz nie ma mistrzostwa",
+  "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
+  
+  "BITD.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    },
+    "ClockXP": {
+      "Name": "Experience Clocks",
+      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+    }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
+  }
 
 }

@@ -12,12 +12,17 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 
   if ( dice_amount < 0 ) { dice_amount = 0; }
   if ( dice_amount === 0 ) { zeromode = true; dice_amount = 2; }
+  
+  //if using Threat Rolls, increase dice pool by number of extra threats after establishing zeromode
+	//Threat Roll comes in as 'effect' and number of Extra dice from threats is coming in as 'current_stress'
+	if (effect === 'BITD.ThreatRoll') {dice_amount = Number(dice_amount)+Number(current_stress);}
 
-  let r = new Roll( `${dice_amount}d6`, {} );
+	let r = new Roll( `${dice_amount}d6`, {} );
 
-  // show 3d Dice so Nice if enabled
-  await r.evaluate();
-  await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_stress, current_crew_tier);
+	// show 3d Dice so Nice if enabled
+	await r.evaluate();
+	await showChatRollMessage(r, zeromode, attribute_name, position, effect, note, current_stress, current_crew_tier);
+
 }
 
 /**
@@ -30,13 +35,14 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
  * @param {string} effect
  */
 async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "", current_stress, current_crew_tier) {
-
   let speaker = ChatMessage.getSpeaker();
   let rolls = (r.terms)[0].results;
   let attribute_label = BladesHelpers.getRollLabel(attribute_name);
 
   // Retrieve Roll status.
   let roll_status = getBladesRollStatus(rolls, zeromode);
+  let edge = false;
+  if (roll_status == 'critical-success') {edge = true;}
 
   let result;
   
@@ -48,7 +54,68 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
     method.label = CONFIG.Dice.fulfillment.methods[method.type].label;
   }
 
-  if (BladesHelpers.isAttributeAction(attribute_name)) {
+  // if the roll is a Threat Roll
+  if (effect === 'BITD.ThreatRoll') {
+	let firstLoop = true; //codes for the header of the chat message
+	let r_rolls = [];
+	
+	// handle 0d
+	if (zeromode) {
+		// get the first two die results from the array for the 0d roll
+		let z_rolls = rolls.slice(0,2);
+		
+		// remove the use dice from the array
+		r_rolls = rolls.slice(2,rolls.length);
+		
+		//process the die results
+		roll_status = getBladesRollStatus(z_rolls, zeromode);
+		if (position === "desperate") {if (roll_status === "partial-success") {roll_status = "failure";} }
+		result = await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: z_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
+		firstLoop = false;
+		
+		// decrement for one result output to the chat message
+		current_stress--;
+	} //end if zeromode
+	
+	// sort the roll results and remap them to have a sorted rolls array
+	let s_rolls = [];
+	if (zeromode) {s_rolls = r_rolls;} 
+		else {s_rolls = rolls.slice(0,rolls.length);}
+    let sorted_rolls = s_rolls.map(i => i.result).sort();
+	for (let k =0; k < s_rolls.length; k++) {
+		s_rolls[k].result = sorted_rolls[k];
+	}
+
+	let use_die=[];
+
+	//loop through the html template for each of the extra threats
+	for (let j = current_stress; j >= 0; j--) {
+		//pull the highest result to feed into the html
+		use_die[0] = s_rolls[s_rolls.length-1];
+
+		//shorten the array for each die used
+		s_rolls.length = s_rolls.length-1;
+
+		//get the roll status for each used die
+		let roll_status = getBladesRollStatus(use_die, false);
+		if (position === "desperate") {if (roll_status === "partial-success") {roll_status = "failure";} }
+
+		//render the html
+		if (firstLoop) {
+			result = await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: true, body: true, footer: false});
+		firstLoop = false;
+		} else {
+			result += await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: use_die, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: true, footer: false});
+		}
+
+	} //end for loop
+
+	// render html for the note and the remaining die results
+	result += await renderTemplate("systems/blades-in-the-dark/templates/chat/threat-roll.html", {rolls: s_rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, effect: effect, note: note, header: false, body: false, footer: true, edge: edge});		
+  
+  }
+  
+  else if (BladesHelpers.isAttributeAction(attribute_name)) {
     let position_localize = '';
     switch (position) {
       case 'controlled':
@@ -75,13 +142,16 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
         effect_localize = 'BITD.EffectStandard'
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/action-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/action-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note, edge: edge});
   }
   // Check for Resistance roll
   else if (BladesHelpers.isAttributeAttribute(attribute_name)) {
     let stress = getBladesRollStress(rolls, zeromode);
-
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/resistance-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note});
+	let filepath = "systems/blades-in-the-dark/templates/chat/resistance-roll.html";
+	if (game.settings.get('blades-in-the-dark', 'PushYourself')){
+		filepath = "systems/blades-in-the-dark/templates/chat/push-yourself-roll.html";
+	}
+    result = await renderTemplate(filepath, {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note, edge: edge});
   }
   // Check for Indugle Vice roll
   else if (attribute_name == 'BITD.Vice') {
@@ -94,15 +164,15 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
       clear_stress = current_stress;
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/vice-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_stress: clear_stress, note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/vice-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, clear_stress: clear_stress, note: note, edge: edge});
   }
   // Check for Gather Information roll
   else if (attribute_name == 'BITD.GatherInformation') {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/gather-info-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/gather-info-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
   }
   // Check for Engagement roll
   else if (attribute_name == 'BITD.Engagement') {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/engagement-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/engagement-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, note: note, edge: edge});
   }
   // Check for Asset roll
   else if (attribute_name == 'BITD.AcquireAsset') {
@@ -124,11 +194,11 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
         break;
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/asset-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, tier_quality: tier_quality, note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/asset-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: attribute_label, tier_quality: tier_quality, note: note,  edge: edge});
   }
   // Fortune roll if not specified
   else {
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/fortune-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: "BITD.Fortune", note: note});
+    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/fortune-roll.html", {rolls: rolls, zeromode: zeromode, method: method, roll_status: roll_status, attribute_label: "BITD.Fortune", note: note, edge: edge});
   }
 
   let messageData;

@@ -11,6 +11,10 @@
     "vice-purveyor": "",
     "playbook": "",
     "crew": [],
+    "edge": {
+      "value": 0,
+      "max": 1
+    },
     "acquaintances": [],
     "acquaintances_label": "BITD.Acquaintances",
     "stress": {
@@ -38,8 +42,18 @@
     "experience": [0],
     "experience_max": 8,
     "experience_clues": ["BITD.ClassExpClue3", "BITD.ClassExpClue2"],
+    "exp_clock": {
+      "value": 0,
+      "number": 0,
+      "size": 6,
+      "color": "black"
+	  },
     "coins": [0],
     "coins_stashed": [0],
+    "coins_max": {
+      "hand": 4,
+      "stash": 40
+    },
     "special_abilities": [],
     "loadout": 0,
     "load_level": "",
@@ -171,8 +185,19 @@
     "lair": "",
     "tier": "",
     "deity": "",
+    "rep2": {
+      "value": "",
+      "visible": false,
+      "label": "BITD.Description"
+    },
     "hold": ["strong"],
     "experience": [0],
+    "exp_clock": {
+      "value": 0,
+      "number": 0,
+      "size": 6,
+      "color": "black"
+	  },
     "hold_types": ["weak", "strong"],
     "coins": {
       "max": 4,
@@ -198,6 +223,13 @@
       "add_trauma": 0,
       "add_stress": 0,
       "mastery": false
+    },
+    "max": {
+      "heat": 9,
+      "tier": 4,
+      "wanted": 4,
+      "rep": 12,
+      "exp": 10
     }
   },
   "\uD83D\uDD5B clock": {

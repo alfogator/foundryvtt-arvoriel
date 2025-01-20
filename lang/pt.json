@@ -120,6 +120,7 @@
 	"BITD.Coins": "Moedas",
 	"BITD.Stash": "Tesouro",
 	"BITD.CrewReputation": "Reputação de Bando",
+    "BITD.DeityDescription": "Deity Description",
 	"BITD.CrewUpgrades": "Melhorias de Bando",
 	"BITD.Hold": "Controle",
 	"BITD.Weak": "Precário",
@@ -135,9 +136,15 @@
 	"BITD.Notes": "Notas",
 	"BITD.AllItems": "Todos os itens",
 	"BITD.CrewXP": "XP de Bando",
+    "BITD.XP": "XP",
+    "BITD.AddXP": "Add XP",
+    "BITD.MinusXP": "Minus XP",
+    "BITD.AddXPClock": "Add XP Clock",
+    "BITD.MinusXPClock": "Minus XP Clock",
 	"BITD.CrewExpClue1": "Ao fim de cada sessão, para cada item abaixo, marque 1xp (na sua classe ou num atributo) ou 2xp se for um elemento que ocorreu múltiplas vezes.",
 	"BITD.SpecialAbilities": "Habilidades Especiais",
 	"BITD.Claimed": "Claimed",
+
 	"BITD.Gang": "Gangue",
 	"BITD.Expert": "Especialista",
 	"BITD.GangTypeAdepts": "Adeptos",
@@ -150,6 +157,7 @@
 	"BITD.GangTypeSkulksDescription": "batedores, infiltradores e ladrões.",
 	"BITD.GangTypeThugs": "Capangas",
 	"BITD.GangTypeThugsDescription": "brigões, matadores e trabalhadores braçais.",
+
 	"BITD.EdgesFearsome": "Assustador",
 	"BITD.EdgesFearsomeDescription": "o parceiro tem aparência e reputação assustadoras.",
 	"BITD.EdgesIndependent": "Independente",
@@ -158,6 +166,7 @@
 	"BITD.EdgesLoyalDescription": "o parceiro não pode ser subornado ou forçado a traí-lo.",
 	"BITD.EdgesTenacious": "Determinado",
 	"BITD.EdgesTenaciousDescription": "missão dada é missão cumprida – o parceiro não será desviado de sua tarefa.",
+
 	"BITD.FlawsPrincipled": "Princípios",
 	"BITD.FlawsPrincipledDescription": "o parceiro tem um conjunto de ética ou valores que nunca trairá.",
 	"BITD.FlawsSavage": "Feroz",
@@ -166,6 +175,7 @@
 	"BITD.FlawsUnreliableDescription": "o parceiro nem sempre está disponível devido a outras obrigações, consequência dos seus vícios ou outros motivos.",
 	"BITD.FlawsWild": "Indomável",
 	"BITD.FlawsWildDescription": "o parceiro é beberrão, devasso e tagarela.",
+
 	"BITD.HarmNoHarm": "Sem dano",
 	"BITD.HarmNoHarmDescription": "O parceiro está saudável.",
 	"BITD.HarmWeakened": "Debilitado",
@@ -176,6 +186,7 @@
 	"BITD.HarmBrokenDescription": "O parceiro não consegue fazer nada até se recuperar.",
 	"BITD.HarmDead": "Morto",
 	"BITD.HarmDeadDescription": "O Parceiro é destruído. Você pode gastar duas atividades de folga e Moedas igual a Categoria do bando +2 para recrutar um novo especialista ou novos membros para uma gangue.",
+
 	"BITD.Roll": "Rolar",
 	"BITD.RollFailure": "Falha",
 	"BITD.RollCriticalSuccess": "Sucesso crítico!",
@@ -193,44 +204,59 @@
 	"BITD.RollFailurePositionDesperate": "O pior resultado possível. Você sofre uma complicação grave, um dano grave, perde a oportunidade de agir.",
 	"BITD.RollResistance": "Você <strong>reduz</strong> ou <strong>evita</strong> os efeitos da consequência (o Mestre decide).<br/>Sofra <strong>{stress} de estresse</strong>.",
 	"BITD.RollResistanceCritical": "Você <strong>reduz</strong> ou <strong>evita</strong> os efeitos da consequência (o Mestre decide).<br/>Recupere <strong>1 estresse</strong>.",
+    "BITD.RollPeril": "Peril",
+    "BITD.RollThreatSuccess": "You avoid the threat.",
+    "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+    "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
+
 	"BITD.PositionControlled": "Controlada",
 	"BITD.PositionRisky": "Arriscada",
 	"BITD.PositionDesperate": "Desesperada",
 	"BITD.EffectLimited": "Limitado",
 	"BITD.EffectStandard": "Padrão",
 	"BITD.EffectGreat": "Superior",
+
 	"BITD.SkillsInsight": "Esperteza",
 	"BITD.SkillsInsightShort": "Esperteza",
 	"BITD.SkillsHunt": "Caçar",
 	"BITD.SkillsStudy": "Estudar",
 	"BITD.SkillsSurvey": "Sondar",
 	"BITD.SkillsTinker": "Adulterar",
+
 	"BITD.SkillsProwess": "Valentia",
 	"BITD.SkillsProwessShort": "Valentia",
 	"BITD.SkillsFinesse": "Manejar",
 	"BITD.SkillsProwl": "Esgueirar",
 	"BITD.SkillsSkirmish": "Brigar",
 	"BITD.SkillsWreck": "Detonar",
+
 	"BITD.SkillsResolve": "Convicção",
 	"BITD.SkillsResolveShort": "Convicção",
 	"BITD.SkillsAttune": "Sintonizar",
 	"BITD.SkillsCommand": "Comandar",
 	"BITD.SkillsConsort": "Socializar",
 	"BITD.SkillsSway": "Convencer",
+
 	"BITD.AddAbility": "Adicionar Habilidade",
 	"BITD.AddItem": "Adicionar Item",
 	"BITD.ImportPlaybookContacts": "Import Playbook Contacts",
 	"BITD.Uses": "No. of Uses",
 	"BITD.NumberAvailable": "Number Available",
 	"BITD.AdditionalInfo": "Additional Information",
+
 	"BITD.Position": "Posição",
 	"BITD.Effect": "Efeito",
 	"BITD.Modifier": "Modificador",
+
 	"BITD.Encumbered": "sobrecarregado",
 	"BITD.OverMax": "além do máximo",
+    "BITD.Discreet": "Discreet",
+    "BITD.Conspicuous": "Conspicuous",
+
 	"BITD.Drain": "Drenagem",
 	"BITD.Wear": "Desgaste",
 	"BITD.Gloom": "Angústia",
+
 	"BITD.Add": "Adicionar",
 	"BITD.Effects": "Efeitos",
 	"BITD.EffectCreate": "Criar Efeito",
@@ -238,9 +264,11 @@
 	"BITD.EffectEdit": "Editar Efeito",
 	"BITD.EffectDelete": "Deletar Efeito",
 	"BITD.EffectWarning": "Gerenciar efeitos ativos dentro de um item sendo usado não é atualmente suportado no FoundryVTT. Será adicionado no futuro.",
+
 	"BITD.Name": "Nome",
 	"BITD.CampaignName": "Nome da Campanha",
 	"BITD.CrewName": "Nome da Banda",
+
 	"BITD.DangerousFriends": "Amigos Perigosos",
 	"BITD.EnemiesRivals": "Inimigos e Rivais",
 	"BITD.DeadlyFriends": "Amigos mortais",
@@ -253,11 +281,15 @@
 	"BITD.StrangeFriends": "Amigos Estranhos",
 	"BITD.Acquaintances": "Conhecidos",
 	"BITD.Contacts": "Contatos",
+
 	"BITD.HuntingGrounds": "Áreas de Caça",
 	"BITD.SacredSites": "Locais Sagrados",
 	"BITD.SalesTerritory": "Território de Vendas",
 	"BITD.CargoTypes": "Tipos de Carga",
 	"BITD.Prison": "Prisão",
+
+    "BITD.ActionRoll": "Action",
+    "BITD.ThreatRoll": "Threat",
 	"BITD.IndulgeVice": "Satisfaça o Vício",
 	"BITD.GatherInformation": "Reúna Informações",
 	"BITD.Fortune": "Sorte",
@@ -265,23 +297,30 @@
 	"BITD.AcquireAsset": "Adquirir Ativo",
 	"BITD.AcquireAssetExtra": "Para aumentar o resultado para além do crítico, pode gastar <strong>2 moedas</strong> por bónus de nível +1.",
 	"BITD.CrewTier": "Nível de Banda",
+    "BITD.ExtraThreats": "Extra Threats",
+    "BITD.Threats": "Threats",
+
 	"BITD.RollVice": "Você entrega a sua voz. <br/>Limpe o stress <strong>{clear stress}</strong>.",
 	"BITD.RollViceFailure": "Você <strong>exagera</strong>. Elimine o stress de <strong>{clear_stress}</strong> e escolha <strong>uma</strong> das seguintes consequências:",
 	"BITD.RollViceFailureAttactTrouble": "<strong>Atraia Problemas.</strong> Selecione ou desloque um <strong>emaranhado adicional.</strong>",
 	"BITD.RollViceFailureBrag": "<strong>Ganhe-se</strong> às suas proezas. <strong>+2 pilhas</strong>",
 	"BITD.RollViceFailureLost": "<strong>Perdido.</strong> A sua personagem desaparece durante algumas semanas. Jogue com uma personagem diferente até que esta regresse da sua farra. Quando a tua personagem regressar, também terá curado qualquer dano sofrido.",
 	"BITD.RollViceFailureTapped": "<strong>Aproveitado.</strong> O seu fornecedor atual interrompe o seu acesso. Encontre uma nova fonte para o seu vício.",
+
 	"BITD.RollFortuneCritical": "O resultado é <strong>excepcional</strong>. Tem um efeito <strong>óptimo</strong> ou <strong>extremo</strong>.",
 	"BITD.RollFortuneSuccess": "O resultado é <strong>bom</strong>. Tem efeito <strong>padrão</strong> ou <strong>total</strong>.",
 	"BITD.RollFortunePartialSuccess": "O resultado é <strong>misto</strong>. Tem efeito <strong>limitado</strong> ou <strong>parcial</strong>.",
 	"BITD.RollFortuneFailure": "O resultado é <strong>mau</strong>. Tem <strong>fraco</strong> ou <strong>pouco efeito</strong>.",
+
 	"BITD.RollGatherInformationSuccess": "<strong>Ótimo</strong>: obtém detalhes excecionais. As informações estão completas e as perguntas de acompanhamento podem expandir-se para áreas relacionadas ou revelar mais do que esperava.",
 	"BITD.RollGatherInformationPartialSuccess": "<strong>Padrão</strong>: obtém bons detalhes. Questões de esclarecimento e acompanhamento são possíveis.",
 	"BITD.RollGatherInformationFailure": "<strong>Limitado</strong>: obtém informação incompleta ou parcial. Será necessária mais recolha de informações para obter todas as respostas.",
+
 	"BITD.RollEngagementCritical": "Resultado excepcional. Já <strong>superou o primeiro obstáculo</strong> e está numa posição <strong>controlada</strong> para o que se segue.",
 	"BITD.RollEngagementSuccess": "Bom resultado. Está numa posição <strong>controlada</strong> quando a ação começa.",
 	"BITD.RollEngagementPartialSuccess": "Resultado misto. Está numa posição <strong>arriscada</strong> quando a ação começa.",
 	"BITD.RollEngagementFailure": "Resultado ruim. Está numa posição <strong>desesperada</strong> quando a ação começa.",
+
 	"BITD.RollAcquireAssetResult": "Ganha um ativo de qualidade <strong>Tier {tier_quality}</strong>.",
 	"BITD.RollAcquireAssetCritical": "Resultado excepcional.",
 	"BITD.RollAcquireAssetSuccess": "Bom resultado.",
@@ -292,5 +331,55 @@
     "BITD.Full": "Cheio",
     "BITD.Associated": "Associado",
     "BITD.DisabledByAE": "Valor Mínimo definido por um Efeito Ativo",
-    "BITD.NoMastery": "Este Canalha não tem Mestria"
+    "BITD.NoMastery": "Este Canalha não tem Mestria",
+    "BITD.UnusedDice": "Unused Dice",
+    "BITD.Edge": "Edge",
+    "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+    "BITD.DiceRoller": "Dice Roller",
+  
+    "BITD.Colors": {
+      "Black": "Black",
+      "Blue": "Blue",
+      "Green": "Green",
+      "Grey": "Grey",
+      "Red": "Red",
+      "White": "White",
+      "Yellow": "Yellow"
+    },
+  
+    "BITD.Settings": {
+      "Action": {
+        "Name": "Action Rolls",
+        "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+      },
+        "Threat": {
+        "Name": "Threat Rolls",
+        "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+      },
+      "Push": {
+        "Name": "Push Yourself Rolls",
+        "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+      },
+      "Load": {
+        "Name": "Alternate Load",
+        "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+      },
+      "ClockXP": {
+        "Name": "Experience Clocks",
+        "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+      },
+      "Edge": {
+        "Name": "Edge",
+        "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+      }
+    },
+    "BITD.log": {
+      "info": {
+        "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+        "SameCrew": "The dropped Crew is the current crew of this character."
+      },
+      "warn": {
+        "NoNPC": "This NPC does not exist in the World or in a Compendium."
+      }
+    }
 }

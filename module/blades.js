@@ -134,41 +134,19 @@ Hooks.once("init", async function() {
     return (a - 1);
   });
 
-  // ReputationTurf handlebar.
-  Handlebars.registerHelper('repturf', (turfs_amount, options) => {
-    let html = options.fn(this);
-    var turfs_amount_int = parseInt(turfs_amount);
-
-    // Can't be more than 6.
-    if (turfs_amount_int > 6) {
-      turfs_amount_int = 6;
-    }
-
-    for (let i = 13 - turfs_amount_int; i <= 12; i++) {
-      const rgx = new RegExp(' value=\"' + i + '\"');
-      html = html.replace(rgx, "$& disabled");
-    }
-    return html;
-  });
-
-  Handlebars.registerHelper('crew_vault_coins', (max_coins, options) => {
+	//Reputation and Turf Bar on Crew Sheet
+    Handlebars.registerHelper('repturf', (_id, turfs_amount, max_rep, options) => {
 
     let html = options.fn(this);
-    for (let i = 1; i <= max_coins; i++) {
+	var turfs_amount_int = parseInt(turfs_amount);
+    for (let i = 1; i <= max_rep; i++) {
 
-      html += "<input type=\"radio\" id=\"crew-coins-vault-" + i + "\" data-dType=\"Number\" name=\"system.vault.value\" value=\"" + i + "\"><label for=\"crew-coins-vault-" + i + "\"></label>";
-    }
-
-    return html;
-  });
-
-  Handlebars.registerHelper('crew_experience', (_id, options) => {
-
-    let html = options.fn(this);
-    for (let i = 1; i <= 10; i++) {
-
-      html += `<input type="radio" id="crew-${_id}-experience-${i}" data-dType="Number" name="system.experience" value="${i}" dtype="Radio"><label for="crew-${_id}-experience-${i}"></label>`;
-    }
+      if (i > max_rep - turfs_amount_int) {
+		  html += `<input disabled type="radio" id="crew-${_id}-reputation-${i}" name="system.reputation" value="${i} dtype="Radio"><label style="background-image: url('systems/blades-in-the-dark/styles/assets/teeth/stresstooth-black.png')" class="radio-toggle" for="crew-${_id}-reputation-${i}"></label>`;
+	  } else {
+	  html += `<input type="radio" id="crew-${_id}-reputation-${i}" name="system.reputation" value="${i}" dtype="Radio"><label class="radio-toggle" for="crew-${_id}-reputation-${i}"></label>`;
+	  }
+	}
 
     return html;
   });
@@ -289,7 +267,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label for="clock-${i}-${uniq_id}"></label>
+        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 
@@ -320,7 +298,7 @@ Hooks.once("init", async function() {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
         <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="String" name="${parameter_name}" ${checked}>
-        <label for="clock-${i}-${uniq_id}"></label>
+        <label class="radio-toggle" for="clock-${i}-${uniq_id}"></label>
       `;
     }
 
@@ -331,13 +309,19 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('pc', function( string ) {
     return BladesHelpers.getProperCase( string );
   });
+  
+  // check for game settings
+  Handlebars.registerHelper('getSetting', function( string ) {
+	  return (game.settings.get('blades-in-the-dark', string));
+
+  });
 });
 
 /**
  * Once the entire VTT framework is initialized, check to see if we should perform a data migration
  */
 Hooks.once("ready", function() {
-
+/**
   // Determine whether a system migration is required
   const currentVersion = game.settings.get("bitd", "systemMigrationVersion");
   const NEEDS_MIGRATION_VERSION = 2.15;
@@ -348,6 +332,7 @@ Hooks.once("ready", function() {
   if ( needMigration && game.user.isGM ) {
     migrations.migrateWorld();
   }
+  **/
 });
 
 /*
@@ -355,11 +340,30 @@ Hooks.once("ready", function() {
  */
 
 // getSceneControlButtons
-Hooks.on("renderSceneControls", async (app, html) => {
-  let dice_roller = $('<li class="scene-control" data-tooltip="Dice Roll"><i class="fas fa-dice"></i></li>');
-  dice_roller.click( async function() {
-    await simpleRollPopup();
-  });
-  html.children().first().append( dice_roller );
+Hooks.on('getSceneControlButtons', controls => {
+	
+	if (foundry.utils.isNewerVersion(game.version,13)) {
+		controls.tokens.tools.DiceRoller = {
+			name: "DiceRoller",
+			title: "BITD.DiceRoller",
+			icon: "fas fa-dice",
+			onChange: (event, active) => {
+				simpleRollPopup();
+			},
+			button: true
+		};		
+	}
+});
+	
+Hooks.on("renderSceneControls", async (app, html) => {	
+
+	if (foundry.utils.isNewerVersion(13,game.version)) { 
+	  let dice_roller = $('<li class="scene-control" data-tooltip="Dice Roll"><i class="fas fa-dice"></i></li>');
+	  dice_roller.click( async function() {
+		await simpleRollPopup();
+	  });
+	  html.children().first().append( dice_roller );
+	}
 
 });
+

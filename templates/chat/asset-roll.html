@@ -26,6 +26,14 @@
   {{/if}}
 
   <div class="description"><p><em>{{{localize "BITD.AcquireAssetExtra"}}}</em></p></div>
+  
+  <div class="description">
+	  {{#if (getSetting 'Edge')}}
+		{{#if edge}}
+			<p>{{{localize "BITD.GainEdge"}}}</p>
+		{{/if}}
+	  {{/if}}
+  </div>
 
   {{#if note}}
     <em>{{note}}</em>

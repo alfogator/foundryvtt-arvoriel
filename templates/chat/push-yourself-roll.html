@@ -1,19 +1,28 @@
 <div class="dice-tooltip blades-die-tooltip">
   {{#if attribute_label}}<div class="chat-label label-stripe-chat">{{localize attribute_label}}</div>{{/if}}
-    {{#if zeromode}}
-	<div class="chat-label-small label-stripe-chat-small">0d</div>
-	{{/if}}
+    <div class="chat-label-small label-stripe-chat-small">
+      {{{localize "BITD.PushYourself"}}} {{#if zeromode}}| 0d {{/if}}
+    </div>
   {{#if (eq roll_status "critical-success")}}
   <div class="die {{roll_status}}">{{localize "BITD.RollCriticalSuccess"}}</div>
   <div class="description">
-    <p>{{{localize "BITD.RollResistanceCritical"}}}</p>
+    <p>{{{localize "BITD.RollResistance" stress=0}}}</p>
   </div>
-  {{else}}
-  <div class="die success">{{localize "BITD.RollSuccess"}}</div>
-  <div class="description"><p>{{{localize "BITD.RollResistance" stress=stress}}}</p></div>
   {{/if}}
-  {{#if note}}
-    <em>{{note}}</em>
+  
+  {{#if (eq roll_status "success")}}
+  <div class="die {{roll_status}}">{{localize "BITD.RollSuccess"}}</div>
+  <div class="description"><p>{{{localize "BITD.RollResistance" stress=1}}}</p></div>
+  {{/if}}
+  
+  {{#if (eq roll_status "partial-success")}}
+  <div class="die {{roll_status}}">{{localize "BITD.RollPartialSuccess"}}</div>
+  <div class="description"><p>{{{localize "BITD.RollResistance" stress=2}}}</p></div>
+  {{/if}}
+  
+  {{#if (eq roll_status "failure")}}
+  <div class="die {{roll_status}}">{{localize "BITD.RollFailure"}}</div>
+  <div class="description"><p>{{{localize "BITD.RollResistance" stress=3}}}</p></div>
   {{/if}}
 
   <div class="description">
@@ -23,6 +32,10 @@
 		{{/if}}
 	  {{/if}}
   </div>
+  
+  {{#if note}}
+    <em>{{note}}</em>
+  {{/if}}
 
   <ol class="dice-rolls">
     {{#each this.rolls}}

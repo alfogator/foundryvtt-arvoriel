@@ -21,9 +21,17 @@
     <p>{{{localize "BITD.RollVice" clear_stress=clear_stress}}}</p>
   </div>
   {{/if}}
+  <div class="description">
+	  {{#if (getSetting 'Edge')}}
+		{{#if edge}}
+			<p>{{{localize "BITD.GainEdge"}}}</p>
+		{{/if}}
+	  {{/if}}
+  </div>
   {{#if note}}
   <em>{{note}}</em>
   {{/if}}
+
 
   <ol class="dice-rolls">
     {{#each this.rolls}}

@@ -10,4 +10,60 @@ export const registerSystemSettings = function() {
     type: Number,
     default: 0
   });
+  
+    game.settings.register('blades-in-the-dark', 'ActionRoll', {
+	name: game.i18n.localize('BITD.Settings.Action.Name'),
+	hint: game.i18n.localize('BITD.Settings.Action.Hint'),
+	config: true,
+	default: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+	
+	game.settings.register('blades-in-the-dark', 'ThreatRoll', {
+	name: game.i18n.localize('BITD.Settings.Threat.Name'),
+	hint: game.i18n.localize('BITD.Settings.Threat.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+  
+  game.settings.register('blades-in-the-dark', 'PushYourself', {
+	name: game.i18n.localize('BITD.Settings.Push.Name'),
+	hint: game.i18n.localize('BITD.Settings.Push.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+  
+    game.settings.register('blades-in-the-dark', 'DeepCutLoad', {
+	name: game.i18n.localize('BITD.Settings.Load.Name'),
+	hint: game.i18n.localize('BITD.Settings.Load.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+  
+    game.settings.register('blades-in-the-dark', 'ClockXP', {
+	name: game.i18n.localize('BITD.Settings.ClockXP.Name'),
+	hint: game.i18n.localize('BITD.Settings.ClockXP.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+  
+    game.settings.register('blades-in-the-dark', 'Edge', {
+	name: game.i18n.localize('BITD.Settings.Edge.Name'),
+	hint: game.i18n.localize('BITD.Settings.Edge.Hint'),
+	config: true,
+	scope: 'world',
+	type: new foundry.data.fields.BooleanField(),
+	requiresReload: true
+  });
+
 };

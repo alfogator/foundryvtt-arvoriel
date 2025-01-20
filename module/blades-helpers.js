@@ -240,13 +240,33 @@ export class BladesHelpers {
        await actor.update({system: {acquaintances : current_acquaintances.concat([acquaintance])}});
      }
      else{
-       ui.notifications.info("The dropped NPC is already an acquaintance of this character.");
+       ui.notifications.info(game.i18n.localize("BITD.log.info.SameNPC"));
     }
   }
+  
    static async removeAcquaintance(actor, acqId){
     let current_acquaintances = actor.system.acquaintances;
     let updated_acquaintances = current_acquaintances.filter(acq => acq._id !== acqId && acq.id !== acqId);
 	await actor.update({system: {acquaintances : updated_acquaintances}});
+  }
+  
+   static async importAcquaintance(actor, acqId){
+		//try to import from a compendium
+   try{
+		let new_actor = await game.actors.importFromCompendium(game.packs.get("blades-in-the-dark.npc"),acqId);
+		//get the UUID of newly created actor
+		let new_id = new_actor.id; console.log(new_id);
+		//get array index of Acquaintance being updated
+		let old_index = await actor.system.acquaintances.findIndex(e => e.id == acqId);
+		// update Acquaintance on actor with new UUID
+		let updated_acquaintances = actor.system.acquaintances;
+		updated_acquaintances[old_index].id = new_id;
+		await actor.update({system: {acquaintances : updated_acquaintances}});
+		await new_actor.sheet.render(true);
+   } catch(error){
+	   ui.notifications.warn(game.i18n.localize(("BITD.log.warn.NoNPC")));
+	   console.error(error);
+   }
   }
 
   static async getSourcedItemsByType(item_type){
@@ -301,7 +321,7 @@ export class BladesHelpers {
 
 		} 
 		else {
-			ui.notifications.info("The dropped Crew is the current crew of this character.");
+			ui.notifications.info(game.i18n.localize("BITD.log.info.SameCrew"));
 		}
 	}
 	

@@ -97,24 +97,6 @@ export class BladesCrewSheet extends BladesSheet {
     // Add Crew Type
     html.find(".crew-class").click(this._onItemAddClick.bind(this));
 
-
-    // Update Inventory Item
-    html.find('.item-sheet-open').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(element.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // Delete Inventory Item
-    html.find('.item-delete').click( async ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      await this.actor.deleteEmbeddedDocuments("Item", [element.data("itemId")]);
-      element.slideUp(200, () => this.render(false));
-    });
-	
-    // manage active effects
-    html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));
-
     // Add a new Cohort
     html.find('.add-item').click(ev => {
       BladesHelpers._addOwnedItem(ev, this.actor);
@@ -146,52 +128,6 @@ export class BladesCrewSheet extends BladesSheet {
         _id: item_id,
         "system.harm": [harm_id]}]);
       this.render(false);
-    });
-	
-	// acquaintance status toggle
-    html.find('.standing-toggle').click(ev => {
-      let acquaintances = this.actor.system.acquaintances;
-      let acqId = ev.target.closest('.acquaintance').dataset.acquaintance;
-      let clickedAcqIdx = acquaintances.findIndex(item => item.id == acqId);
-      let clickedAcq = acquaintances[clickedAcqIdx];
-      let oldStanding = clickedAcq.standing;
-      let newStanding;
-      switch(oldStanding){
-        case "friend":
-          newStanding = "rival";
-          break;
-        case "rival":
-          newStanding = "neutral";
-          break;
-        case "neutral":
-          newStanding = "friend";
-          break;
-      }
-      clickedAcq.standing = newStanding;
-      acquaintances.splice(clickedAcqIdx, 1, clickedAcq);
-      this.actor.update({system: {acquaintances : acquaintances}});
-    });
-	
-	  // Open Acquaintance
-    html.find('.open-friend').click(ev => {
-      const element = $(ev.currentTarget).parents(".item");
-      const actor = game.actors.get(element.data("itemId"));
-      actor?.sheet.render(true);
-    });
-	
-	// Remove Acquaintance from character sheet
-    html.find('.acquaintance-delete').click(ev => {
-      //let acqId = ev.target.closest('.acquaintance').dataset.acquaintance; //used when <div class="acquaintance"
-	  const element = $(ev.currentTarget).parents(".item");
-	  let acqId = element.data("itemId");
-	  BladesHelpers.removeAcquaintance(this.actor, acqId);
-    });
-
-	  // Import Acquaintance by playbook
-    html.find('.import-contacts').click(ev => {
-	  const playbook = this.actor.items.filter(i=> i.type === "crew_type")[0]?.name;
-	  BladesHelpers.import_pb_contacts(this.actor, playbook);
-
     });
 
   }
