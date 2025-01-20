@@ -13,10 +13,10 @@ If you have questions, please ask them on the #forged-in-the-dark channel of the
 ## Usage
 `"Item" - all classes, crew types, upgrades, items, abilities, upgrades, etc.`
 
-- To reset reputation, exp, etc counters just click on the label name.
-- Health clock can be reset by clicking on "Healing" table header.
+- All bars can be adjusted by clicking on the box that you want to check. Clicking or right-clicking a checked box will uncheck it.
 - To add items you can click a corresponding link or drag items from compendium/game to the sheet.
 - All "class/crew" specific items are prefixed with first letters
+- To enable Deep Cuts options, use the settings menu.
 
 - I don't want the "class/crew items" to be prepopulated, so the character sheet contains less "compendium" info.
 - To see the description of Class, Vice, Background, etc you can just click added item and see all the info in the popup.

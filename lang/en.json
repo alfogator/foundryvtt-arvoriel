@@ -336,6 +336,7 @@
   "BITD.UnusedDice": "Unused Dice",
   "BITD.Edge": "Edge",
   "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
   
   "BITD.Colors": {
     "Black": "Black",

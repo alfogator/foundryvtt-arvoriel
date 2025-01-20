@@ -135,7 +135,11 @@
   "BITD.Notes": "Notas",
   "BITD.AllItems": "Todos los elementos",
   "BITD.CrewXP": "PX de la Banda",
-  "BITD.CrewExpClue1": "Al final de la sesión, marcad 1 PX por cada punto siguiente, si se ha cumplido, o 2 PX si se ha cumplido varias veces.",
+  "BITD.XP": "XP",
+  "BITD.AddXP": "Add XP",
+  "BITD.MinusXP": "Minus XP",
+  "BITD.AddXPClock": "Add XP Clock",
+  "BITD.MinusXPClock": "Minus XP Clock",  "BITD.CrewExpClue1": "Al final de la sesión, marcad 1 PX por cada punto siguiente, si se ha cumplido, o 2 PX si se ha cumplido varias veces.",
   "BITD.SpecialAbilities": "Capacidades Especiales",
   "BITD.Claimed": "Reclamado",
 
@@ -198,7 +202,10 @@
   "BITD.RollFailurePositionDesperate": "Nada puede ir peor. Sufres un <strong>daño grave</strong>, se produce una <strong>complicación seria</strong>, <strong>pierdes la oportunidad</strong> de realizar esta acción.",
   "BITD.RollResistance": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Suffer <strong>{stress} stress</strong>.",
   "BITD.RollResistanceCritical": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Clear <strong>1 stress</strong>.",
-
+  "BITD.RollPeril": "Peril",
+  "BITD.RollThreatSuccess": "You avoid the threat.",
+  "BITD.RollThreatPeril": "Suffer a reduced consequence or <strong>push yourself</strong> to avoid the threat.",
+  "BITD.RollThreatThreat": "You suffer the consequence If you <strong>push yourself</strong>, reduce the consequence.",
   "BITD.PositionControlled": "Controlada",
   "BITD.PositionRisky": "Arriesgada",
   "BITD.PositionDesperate": "Desesperada",
@@ -238,6 +245,10 @@
   "BITD.Effect": "Efecto",
   "BITD.Modifier": "Modificador",
 
+  "BITD.Encumbered": "encumbered",
+  "BITD.OverMax": "over max",
+  "BITD.Discreet": "Discreet",
+  "BITD.Conspicuous": "Conspicuous",
   "BITD.Drain": "Drenaje",
   "BITD.Wear": "Desgaste",
   "BITD.Gloom": "Desolación",
@@ -273,6 +284,9 @@
   "BITD.CargoTypes": "Tipos de Carga",
   "BITD.Prison": "Prisión",
 
+  "BITD.ActionRoll": "Action",
+  "BITD.ThreatRoll": "Threat",
+  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Satisfacer Vicio",
   "BITD.GatherInformation": "Recopilar Información",
   "BITD.Fortune": "Fortuna",
@@ -312,5 +326,55 @@
   "BITD.Full": "Lleno",
   "BITD.Associated": "Asociado",
   "BITD.DisabledByAE": "Valor Mínimo establecido por un Efecto Activo",
-  "BITD.NoMastery": "A este sinvergüenza le falta maestría"
+  "BITD.NoMastery": "A este sinvergüenza le falta maestría",
+  "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
+  
+  "BITD.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    },
+    "ClockXP": {
+      "Name": "Experience Clocks",
+      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+    }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
+  }
 }

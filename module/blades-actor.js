@@ -197,8 +197,6 @@ export class BladesActor extends Actor {
           icon: "<i class='fas fa-check'></i>",
           label: game.i18n.localize('BITD.Roll'),
           callback: async (html) => {
-            let position = html.find('[name="pos"]')[0].value;
-			let position2 = html.find('[name="pos2"]')[0].value;
 			let modifier = parseInt(html.find('[name="mod"]')[0].value);
             let note = html.find('[name="note"]')[0].value;
             let action_dice_amount = this.getRollData().dice_amount[attribute_name] + modifier;
@@ -211,10 +209,12 @@ export class BladesActor extends Actor {
                   switch (input[i].id) {
                     case 'actionRoll':
                       let effect = html.find('[name="fx"]')[0].value;
+					  let position = html.find('[name="pos"]')[0].value;
                       await this.rollAttribute(attribute_name, modifier, position, effect, note);
                       break;
 					case 'threatRoll':
                       let extraThreats = Number(html.find('[name="extraThreats"]')[0].value);
+					  let position2 = html.find('[name="pos2"]')[0].value;
 					  await bladesRoll(action_dice_amount, attribute_name, position2, 'BITD.ThreatRoll', note, extraThreats);
                       break;
                     case 'fortune':

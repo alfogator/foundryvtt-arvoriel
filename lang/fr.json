@@ -120,6 +120,7 @@
   "BITD.Coins": "Lingots",
   "BITD.Stash": "Chambre forte",
   "BITD.CrewReputation": "Réputation de la Bande",
+  "BITD.DeityDescription": "Deity Description",
   "BITD.CrewUpgrades": "Améliorations de la Bande",
   "BITD.Hold": "Assise",
   "BITD.Weak": "Fragile",
@@ -135,6 +136,11 @@
   "BITD.Notes": "Notes",
   "BITD.AllItems": "Tous les Objets",
   "BITD.CrewXP": "PX de la Bande",
+  "BITD.XP": "XP",
+  "BITD.AddXP": "Add XP",
+  "BITD.MinusXP": "Minus XP",
+  "BITD.AddXPClock": "Add XP Clock",
+  "BITD.MinusXPClock": "Minus XP Clock",
   "BITD.CrewExpClue1": "À la fin de chaque session de jeu, la bande gagne 1 px par critère rempli (2 px si cela s’est produit plusieurs fois).",
   "BITD.SpecialAbilities": "Capacités Spéciales",
   "BITD.Claimed": "Claimed",
@@ -262,7 +268,17 @@
   "BITD.DarkServants": "Serviteurs Sombres",
   "BITD.StrangeFriends": "Amis Étranges",
   "BITD.Acquaintances": "Connaissances",
-  
+  "BITD.Contacts": "Contacts",
+ 
+  "BITD.HuntingGrounds": "Hunting Grounds",
+  "BITD.SacredSites": "Sacred Sites",
+  "BITD.SalesTerritory": "Sales Territory",
+  "BITD.CargoTypes": "Cargo Types",
+  "BITD.Prison": "Prison",
+
+  "BITD.ActionRoll": "Action",
+  "BITD.ThreatRoll": "Threat",
+  "BITD.PushYourself": "Push Yourself",
   "BITD.IndulgeVice": "Satisfaire son Vice",
   "BITD.GatherInformation": "Collecter des Informations",
   "BITD.Fortune": "Chance",
@@ -270,6 +286,8 @@
   "BITD.AcquireAsset": "Acquérir un Bien",
   "BITD.AcquireAssetExtra": "Pour augmenter le résultat au-delà du critique, vous pouvez dépenser <strong>2 Argents</strong> par bonus de +1 Tier.",
   "BITD.CrewTier": "Niveau de la Bande",
+  "BITD.ExtraThreats": "Extra Threats",
+  "BITD.Threats": "Threats",
   "BITD.RollVice": "Vous vous adonnez à votre vice.<br/>Effacez <strong>{clear_stress} stress</strong>.",
   "BITD.RollViceFailure": "Vous <strong>exagérez</strong>. Effacez <strong>{clear_stress} stress</strong> et choisissez <strong>une</strong> des conséquences suivantes :",
   "BITD.RollViceFailureAttactTrouble": "<strong>S'attirer des ennuis.</strong> Sélectionnez ou lancez un jet <strong>d’imbroglio</strong> supplémentaire.",
@@ -301,6 +319,56 @@
   "BITD.Full": "Complet",
   "BITD.Associated": "Associé",
   "BITD.DisabledByAE": "Valeur minimale définie par un effet actif",
-  "BITD.NoMastery": "Ce scélérat manque de maîtrise"
+  "BITD.NoMastery": "Ce scélérat manque de maîtrise",
+  "BITD.UnusedDice": "Unused Dice",
+  "BITD.Edge": "Edge",
+  "BITD.GainEdge": "Gain an <strong>Edge</strong>.",
+  "BITD.DiceRoller": "Dice Roller",
+  
+  "BITD.Colors": {
+    "Black": "Black",
+    "Blue": "Blue",
+    "Green": "Green",
+    "Grey": "Grey",
+    "Red": "Red",
+    "White": "White",
+    "Yellow": "Yellow"
+  },
+  
+  "BITD.Settings": {
+    "Action": {
+      "Name": "Action Rolls",
+      "Hint": "Enables the Action Roll from the Actor Dice Roller; only uncheck if you have enabled Threat Rolls."
+    },
+    "Threat": {
+      "Name": "Threat Rolls",
+      "Hint": "Enables the Threat Roll from the Deep Cuts supplement."
+    },
+    "Push": {
+      "Name": "Push Yourself Rolls",
+      "Hint": "Replaces the base Resistance Roll with the Push Yourself Roll from the Deep Cuts supplement."
+    },
+    "Load": {
+      "Name": "Alternate Load",
+      "Hint": "Replaces the base Load Rules (Light/Normal/Heavy) with the Load Rules (Discreet/Conspicuous) from the Deep Cuts supplement."
+    },
+    "ClockXP": {
+      "Name": "Experience Clocks",
+      "Hint": "Replaces the base Experience Rules with Experience Clocks from the Deep Cuts supplement."
+    },
+    "Edge": {
+      "Name": "Edge",
+      "Hint": "Adds Edge to character sheets from the Deep Cuts supplement."
+    }
+  },
+  "BITD.log": {
+    "info": {
+      "SameNPC": "The dropped NPC is already an acquaintance of this character.",
+      "SameCrew": "The dropped Crew is the current crew of this character."
+    },
+    "warn": {
+      "NoNPC": "This NPC does not exist in the World or in a Compendium."
+    }
+  }
 
 }

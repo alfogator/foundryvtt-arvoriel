@@ -340,20 +340,24 @@ Hooks.once("ready", function() {
  */
 
 // getSceneControlButtons
-Hooks.on("renderSceneControls", async (app, html) => {
+Hooks.on('getSceneControlButtons', controls => {
 	
 	if (foundry.utils.isNewerVersion(game.version,13)) {
-		controls.DiceRoller = {
+		controls.tokens.tools.DiceRoller = {
 			name: "DiceRoller",
-			title: "Dice Roller",
+			title: "BITD.DiceRoller",
 			icon: "fas fa-dice",
 			onChange: (event, active) => {
-				console.log("Do something when the button is clicked!");
 				simpleRollPopup();
 			},
 			button: true
 		};		
-	} else {
+	}
+});
+	
+Hooks.on("renderSceneControls", async (app, html) => {	
+
+	if (foundry.utils.isNewerVersion(13,game.version)) { 
 	  let dice_roller = $('<li class="scene-control" data-tooltip="Dice Roll"><i class="fas fa-dice"></i></li>');
 	  dice_roller.click( async function() {
 		await simpleRollPopup();
