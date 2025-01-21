@@ -17,7 +17,9 @@ export class BladesSheet extends ActorSheet {
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
 	
 	//for compatibility with bitd-alternate-sheets v1.0.10
-	if (game.modules.get("bitd-alternate-sheets").active) {
+	let alt_sheets = false;
+	try {alt_sheets = game.modules.get("bitd-alternate-sheets").active;} catch {}
+	if (alt_sheets) {
 		html.find("input.radio-toggle, label.radio-toggle").click((e) => e.preventDefault());
 		html.find("input.radio-toggle, label.radio-toggle").mousedown((e) => {
 			this._onRadioToggle(e);

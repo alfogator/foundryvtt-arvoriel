@@ -11,6 +11,8 @@ export const registerSystemSettings = function() {
     default: 0
   });
   
+  if (foundry.utils.isNewerVersion(game.version, 12)) {
+
     game.settings.register('blades-in-the-dark', 'ActionRoll', {
 	name: game.i18n.localize('BITD.Settings.Action.Name'),
 	hint: game.i18n.localize('BITD.Settings.Action.Hint'),
@@ -65,5 +67,23 @@ export const registerSystemSettings = function() {
 	type: new foundry.data.fields.BooleanField(),
 	requiresReload: true
   });
+  } //end if for game.version >12
+  else {
+	  
+  const set_array = [['ActionRoll','Action'],['ThreatRoll','Threat'],['PushYourself','Push'],['DeepCutLoad','Load'],['ClockXP','ClockXP'],['Edge','Edge']];
+ 
+  for (let i=0; i<set_array.length; i++) {
+	  
+	game.settings.register('blades-in-the-dark', set_array[i][0], {
+		name: game.i18n.localize('BITD.Settings.'+set_array[i][1]+'.Name'),
+		hint: game.i18n.localize('BITD.Settings.'+set_array[i][1]+'.Hint'),
+		config: true,
+		scope: 'world',
+		type: Boolean,
+		requiresReload: true
+	});
+  }
+	  
+  }
 
 };

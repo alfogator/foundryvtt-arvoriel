@@ -1,4 +1,8 @@
-v.5.4.0
+v.6.0.1
+- Fixed bug that prevented character sheets from functioning correctly if the BitD Alternate Sheets module was not installed
+- Added backwards compatibility for v11 Foundry
+
+v.6.0.0
 - Added Threat Rolls, alternate Load Levels, Experience Clocks, and Edge in support of Deep Cuts supplements (#19)
 - Deduplicated listeners and related function by moving them to blades-sheet.js
 - Opening a contact that is not imported to the world will now import the actor and connect the imported actor to the character sheet
