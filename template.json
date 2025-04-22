@@ -7,8 +7,6 @@
     "heritage": "",
     "background": "",
     "background-details": "",
-    "vice": "",
-    "vice-purveyor": "",
     "playbook": "",
     "crew": [],
     "edge": {
@@ -24,13 +22,13 @@
       "name_default": "BITD.Stress",
       "name": "BITD.Stress"
     },
-    "trauma": {
+    "corruption": {
       "max": 4,
       "max_default": 4,
       "value": [0],
       "name": "BITD.Trauma",
       "name_default": "BITD.Trauma",
-      "options": ["BITD.TraumaCold", "BITD.TraumaHaunted", "BITD.TraumaObsessed", "BITD.TraumaParanoid", "BITD.TraumaReckless", "BITD.TraumaSoft", "BITD.TraumaUnstable", "BITD.TraumaVicious"],
+      "options": [],
       "list": []
     },
     "healing-clock": [0],
@@ -110,7 +108,13 @@
               "value": 0,
               "max": 3,
               "min": 0
-            }
+            },
+            "knowledge": {
+              "label": "BITD.SkillsKnowledge",
+              "value": 0,
+              "max": 3,
+              "min": 0
+            }            
           }
         },
         "prowess": {
@@ -139,6 +143,12 @@
             },
             "wreck": {
               "label": "BITD.SkillsWreck",
+              "value": 0,
+              "max": 3,
+              "min": 0
+            },
+            "resistance": {
+              "label": "BITD.SkillsResistance",
               "value": 0,
               "max": 3,
               "min": 0
@@ -171,6 +181,12 @@
             },
             "sway": {
               "label": "BITD.SkillsSway",
+              "value": 0,
+              "max": 3,
+              "min": 0
+            },
+            "performance": {
+              "label": "BITD.SkillsPerformance",
               "value": 0,
               "max": 3,
               "min": 0
@@ -349,14 +365,17 @@
       "study": [0],
       "survey": [0],
       "tinker": [0],
+      "knowledge": [0],
       "finesse": [0],
       "prowl": [0],
       "skirmish": [0],
       "wreck": [0],
+      "resistance": [0],
       "attune": [0],
       "command": [0],
       "consort": [0],
-      "sway": [0]
+      "sway": [0],
+      "performance": [0]
     }
   },
   "ability": {
